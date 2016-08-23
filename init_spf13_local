@@ -1,0 +1,62 @@
+#!/usr/bin/env bash
+
+exit_if_error() {
+    local err_code=$1
+
+    if [ $err_code -ne 0 ]; then
+        exit $err_code
+    fi
+}
+
+
+backup() {
+    local target_dir=$1
+    local target_file=$2
+
+    if [ -f "$target_dir/$target_file" ]; then
+        cp "$target_dir/$target_file" "$target_dir/$target_file.mybackup"
+    fi
+}
+
+
+lnfile() {
+    local source_dir=$1
+    local source_file=$2
+    local target_dir=$3
+    local target_file=$4
+
+    ln -sf "$source_dir/$source_file" "$target_dir/$target_file"
+}
+
+
+rmbackup() {
+    local target_dir=$1
+    local target_file=$2
+
+    rm -f "$target_dir/$target_file.mybackup"
+}
+
+
+install_file() {
+    local source_dir=$1
+    local source_file=$2
+    local target_dir=$3
+    local target_file=$4
+
+    backup "$target_dir" "$target_file"
+    exit_if_error $?
+
+    lnfile "$source_dir" "$source_file" "$target_dir" "$target_file"
+    exit_if_error $?
+
+    rmbackup "$target_dir" "$target_file"
+    exit_if_error $?
+}
+
+
+spf13_local_home="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+install_file "$spf13_local_home" 'upgrade_spf13' "$HOME/bin" 'upgrade_spf13'
+install_file "$spf13_local_home" 'vimrc.before.local' "$HOME" '.vimrc.before.local'
+install_file "$spf13_local_home" 'vimrc.bundles.local' "$HOME" '.vimrc.bundles.local'
+install_file "$spf13_local_home" 'vimrc.local' "$HOME" '.vimrc.local'
