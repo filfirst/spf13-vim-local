@@ -1,0 +1,101 @@
+set nospell
+set lines&
+set wrap
+
+"let g:indent_guides_enable_on_vim_startup=0
+autocmd FileType haskell,puppet,ruby,yml setlocal expandtab shiftwidth=4 softtabstop=4
+
+if has("macunix")
+    set guifont=Menlo:h12
+elseif has("unix")
+    set guifont=Ubuntu\ Mono\ 13
+endif
+
+colorscheme Monokai
+"colorscheme solarized
+
+highlight Normal guifg=#ffffff
+highlight Normal ctermbg=NONE ctermfg=NONE
+
+highlight NonText guibg=NONE guifg=NONE
+highlight NonText ctermbg=NONE ctermfg=NONE
+
+highlight Search guibg=LightBlue guifg=Black
+highlight Search ctermbg=LightBlue ctermfg=Black term=NONE
+
+if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
+    nnoremap <Leader>bf :CtrlPBuffer<CR>
+endif
+
+UnBundle 'MarcWeber/vim-addon-mw-utils'
+UnBundle 'tomtom/tlib_vim'
+"UnBundle 'scrooloose/nerdtree'
+"UnBundle 'altercation/vim-colors-solarized'
+"UnBundle 'spf13/vim-colors'
+UnBundle 'tpope/vim-surround'
+UnBundle 'tpope/vim-repeat'
+UnBundle 'rhysd/conflict-marker.vim'
+UnBundle 'jiangmiao/auto-pairs'
+UnBundle 'ctrlpvim/ctrlp.vim'
+UnBundle 'tacahiroy/ctrlp-funky'
+UnBundle 'terryma/vim-multiple-cursors'
+UnBundle 'vim-scripts/sessionman.vim'
+UnBundle 'matchit.zip'
+"UnBundle 'vim-airline/vim-airline'
+"UnBundle 'vim-airline/vim-airline-themes'
+UnBundle 'powerline/fonts'
+UnBundle 'bling/vim-bufferline'
+UnBundle 'easymotion/vim-easymotion'
+"UnBundle 'jistr/vim-nerdtree-tabs'
+"UnBundle 'flazz/vim-colorschemes'
+UnBundle 'mbbill/undotree'
+UnBundle 'nathanaelkane/vim-indent-guides'
+UnBundle 'vim-scripts/restore_view.vim'
+"UnBundle 'mhinz/vim-signify'
+UnBundle 'tpope/vim-abolish.git'
+UnBundle 'osyo-manga/vim-over'
+UnBundle 'kana/vim-textobj-user'
+UnBundle 'kana/vim-textobj-indent'
+UnBundle 'gcmt/wildfire.vim'
+UnBundle 'reedes/vim-litecorrect'
+UnBundle 'reedes/vim-textobj-sentence'
+UnBundle 'reedes/vim-textobj-quote'
+UnBundle 'reedes/vim-wordy'
+UnBundle 'scrooloose/syntastic'
+"UnBundle 'tpope/vim-fugitive'
+UnBundle 'mattn/webapi-vim'
+UnBundle 'mattn/gist-vim'
+UnBundle 'scrooloose/nerdcommenter'
+UnBundle 'tpope/vim-commentary'
+UnBundle 'godlygeek/tabular'
+"UnBundle 'luochen1990/rainbow'
+"UnBundle 'majutsushi/tagbar'
+UnBundle 'Shougo/neocomplete.vim.git'
+UnBundle 'Shougo/neosnippet'
+UnBundle 'Shougo/neosnippet-snippets'
+UnBundle 'honza/vim-snippets'
+UnBundle 'spf13/PIV'
+UnBundle 'arnaud-lb/vim-php-namespace'
+UnBundle 'beyondwords/vim-twig'
+UnBundle 'klen/python-mode'
+UnBundle 'yssource/python.vim'
+UnBundle 'python_match.vim'
+UnBundle 'pythoncomplete'
+UnBundle 'elzr/vim-json'
+UnBundle 'groenewege/vim-less'
+UnBundle 'pangloss/vim-javascript'
+UnBundle 'briancollins/vim-jst'
+UnBundle 'kchmck/vim-coffee-script'
+UnBundle 'amirh/HTML-AutoCloseTag'
+UnBundle 'hail2u/vim-css3-syntax'
+UnBundle 'gorodinskiy/vim-coloresque'
+UnBundle 'tpope/vim-haml'
+UnBundle 'mattn/emmet-vim'
+UnBundle 'tpope/vim-rails'
+"UnBundle 'rust-lang/rust.vim'
+UnBundle 'tpope/vim-markdown'
+UnBundle 'spf13/vim-preview'
+UnBundle 'tpope/vim-cucumber'
+UnBundle 'cespare/vim-toml'
+UnBundle 'quentindecock/vim-cucumber-align-pipes'
+UnBundle 'saltstack/salt-vim'
