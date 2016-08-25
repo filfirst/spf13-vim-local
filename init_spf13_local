@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# NOTE: Specify python binary at startup
+# vim -c "let g:ycm_python_binary_path='python3'" foo.py
+
+
 exit_if_error() {
     local err_code=$1
 
@@ -42,6 +46,7 @@ install_file() {
     local source_file=$2
     local target_dir=$3
     local target_file=$4
+    local del_backup=$5
 
     backup "$target_dir" "$target_file"
     exit_if_error $?
@@ -49,8 +54,10 @@ install_file() {
     lnfile "$source_dir" "$source_file" "$target_dir" "$target_file"
     exit_if_error $?
 
-    rmbackup "$target_dir" "$target_file"
-    exit_if_error $?
+    if [[ -n "$del_backup" ]]; then
+        rmbackup "$target_dir" "$target_file"
+        exit_if_error $?
+    fi
 }
 
 
@@ -59,4 +66,4 @@ spf13_local_home="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 install_file "$spf13_local_home" 'upgrade_spf13' "$HOME/bin" 'upgrade_spf13'
 install_file "$spf13_local_home" 'vimrc.before.local' "$HOME" '.vimrc.before.local'
 install_file "$spf13_local_home" 'vimrc.bundles.local' "$HOME" '.vimrc.bundles.local'
-install_file "$spf13_local_home" 'vimrc.local' "$HOME" '.vimrc.local'
+install_file "$spf13_local_home" 'vimrc.local' "$HOME" '.vimrc.local' '1'

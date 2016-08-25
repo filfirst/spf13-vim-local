@@ -27,6 +27,26 @@ if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
     nnoremap <Leader>bf :CtrlPBuffer<CR>
 endif
 
+if isdirectory(expand("~/.vim/bundle/syntastic/"))
+    nnoremap <Leader>ss :SyntasticToggleMode<CR>
+    nnoremap <Leader>sc :SyntasticCheck<CR>
+    nnoremap <Leader>sr :SyntasticRese<CR>
+endif
+
+if isdirectory(expand("~/.vim/bundle/YouCompleteMe/"))
+    nnoremap <Leader>ya :YcmCompleter GoToDeclaration<CR>
+    nnoremap <Leader>yg :YcmCompleter GoToDefinition<CR>
+    nnoremap <Leader>yh :YcmCompleter GoToInclude<CR>
+    nnoremap <Leader>yi :YcmCompleter GoToImprecise<CR>
+    nnoremap <Leader>yt :YcmCompleter GoTo<CR>
+    nnoremap <Leader>yf :YcmCompleter FixIt<CR>
+    nnoremap <Leader>yp :YcmCompleter GetParent<CR>
+    nnoremap <Leader>ytp :YcmCompleter GetType<CR>
+    nnoremap <Leader>yd :YcmCompleter GetDoc<CR>
+    nnoremap <Leader>yq :YcmCompleter GetDocQuick<CR>
+    nnoremap <Leader>yr :YcmCompleter GoToReferences<CR>
+endif
+
 UnBundle 'MarcWeber/vim-addon-mw-utils'
 UnBundle 'tomtom/tlib_vim'
 "UnBundle 'scrooloose/nerdtree'
@@ -61,7 +81,7 @@ UnBundle 'reedes/vim-litecorrect'
 UnBundle 'reedes/vim-textobj-sentence'
 UnBundle 'reedes/vim-textobj-quote'
 UnBundle 'reedes/vim-wordy'
-UnBundle 'scrooloose/syntastic'
+"UnBundle 'scrooloose/syntastic'
 "UnBundle 'tpope/vim-fugitive'
 UnBundle 'mattn/webapi-vim'
 UnBundle 'mattn/gist-vim'
@@ -73,7 +93,9 @@ UnBundle 'godlygeek/tabular'
 UnBundle 'Shougo/neocomplete.vim.git'
 UnBundle 'Shougo/neosnippet'
 UnBundle 'Shougo/neosnippet-snippets'
-UnBundle 'honza/vim-snippets'
+"UnBundle 'Valloric/YouCompleteMe'
+"UnBundle 'SirVer/ultisnips'
+"UnBundle 'honza/vim-snippets'
 UnBundle 'spf13/PIV'
 UnBundle 'arnaud-lb/vim-php-namespace'
 UnBundle 'beyondwords/vim-twig'

@@ -1,3 +1,16 @@
+let g:spf13_bundle_groups=['general', 'youcompleteme', 'programming', 'misc',]
+"let g:spf13_bundle_groups=['general', 'programming', 'misc',]
 let g:spf13_keep_trailing_whitespace = 1
 let g:spf13_no_autochdir = 1
+let g:spf13_no_conceal = 1
+let g:spf13_leader='\'
 let g:airline_skip_empty_sections = 1
+let g:syntastic_mode_map = {'mode': 'passive'}
+
+if isdirectory(expand("~/.vim/bundle/YouCompleteMe/"))
+    "let g:ycm_auto_trigger = 0
+    let g:ycm_global_ycm_extra_conf = '~/.spf13-vim.local/ycm_extra_conf.py'
+"    if has('python3')
+"        let g:ycm_python_binary_path = 'python3'
+"    endif
+endif
