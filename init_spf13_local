@@ -63,7 +63,7 @@ install_file() {
 
 spf13_local_home="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-install_file "$spf13_local_home" 'upgrade_spf13' "$HOME/bin" 'upgrade_spf13'
-install_file "$spf13_local_home" 'vimrc.before.local' "$HOME" '.vimrc.before.local'
-install_file "$spf13_local_home" 'vimrc.bundles.local' "$HOME" '.vimrc.bundles.local'
+install_file "$spf13_local_home" 'upgrade_spf13' "$HOME/bin" 'upgrade_spf13' '1'
+install_file "$spf13_local_home" 'vimrc.before.local' "$HOME" '.vimrc.before.local' '1'
+install_file "$spf13_local_home" 'vimrc.bundles.local' "$HOME" '.vimrc.bundles.local' '1'
 install_file "$spf13_local_home" 'vimrc.local' "$HOME" '.vimrc.local' '1'
