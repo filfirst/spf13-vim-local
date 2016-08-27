@@ -23,8 +23,8 @@ highlight NonText ctermbg=NONE ctermfg=NONE
 highlight Search guibg=LightBlue guifg=Black
 highlight Search ctermbg=LightBlue ctermfg=Black term=NONE
 
-highlight Pmenu ctermfg=White ctermbg=DarkGray cterm=NONE guifg=#ffffff guibg=#656565 gui=NONE
-highlight PmenuSel ctermfg=DarkBlue ctermbg=LightGray cterm=NONE guifg=#6565ff guibg=#cfcfcf gui=NONE
+highlight Pmenu ctermfg=White ctermbg=DarkGray cterm=NONE guifg=#ffffff guibg=#727272 gui=NONE
+highlight PmenuSel ctermfg=DarkBlue ctermbg=LightGray cterm=NONE guifg=#6565ff guibg=#e0e0e0 gui=NONE
 
 if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
     nnoremap <Leader>bf :CtrlPBuffer<CR>
