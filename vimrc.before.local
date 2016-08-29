@@ -10,6 +10,9 @@ let g:syntastic_mode_map = {'mode': 'passive'}
 if isdirectory(expand("~/.vim/bundle/YouCompleteMe/"))
     "let g:ycm_auto_trigger = 0
     let g:ycm_global_ycm_extra_conf = '~/.spf13-vim.local/ycm_extra_conf.py'
+    "let g:ycm_collect_identifiers_from_tags_files = 1
+    let g:ycm_confirm_extra_conf = 0
+    let g:ycm_max_diagnostics_to_display = 1000
     let g:ycm_disable_for_files_larger_than_kb = 10000
 
     if isdirectory(expand("~/opt/rust/rustc/"))
