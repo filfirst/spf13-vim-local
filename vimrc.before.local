@@ -1,12 +1,28 @@
 let g:spf13_bundle_groups=['general', 'youcompleteme', 'programming', 'misc',]
 "let g:spf13_bundle_groups=['general', 'programming', 'misc',]
-let g:spf13_keep_trailing_whitespace = 1
 let g:spf13_no_wrapRelMotion = 1
 let g:spf13_no_autochdir = 1
 let g:spf13_no_conceal = 1
+let g:spf13_keep_trailing_whitespace = 1
 let g:spf13_leader='\'
 let g:airline_skip_empty_sections = 1
 let g:syntastic_mode_map = {'mode': 'passive'}
+
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "*",
+    \ "Staged"    : "+",
+    \ "Untracked" : "?",
+    \ "Renamed"   : "=",
+    \ "Unmerged"  : "!",
+    \ "Deleted"   : "-",
+    \ "Dirty"     : "x",
+    \ "Clean"     : "v",
+    \ "Unknown"   : "#"
+    \ }
+
+let g:signify_sign_add               = '+'
+let g:signify_sign_delete            = '-'
+let g:signify_sign_change            = '*'
 
 if isdirectory(expand("~/.vim/bundle/YouCompleteMe/"))
     "let g:ycm_auto_trigger = 0
