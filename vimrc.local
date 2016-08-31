@@ -2,29 +2,33 @@ set nospell
 set lines&
 set wrap
 
-"let g:indent_guides_enable_on_vim_startup=0
-autocmd FileType haskell,puppet,ruby,yml setlocal expandtab shiftwidth=4 softtabstop=4
 
 if has("macunix")
     set guifont=Menlo:h12
 elseif has("unix")
     set guifont=Ubuntu\ Mono\ 13
+else
+    " Use default
 endif
 
-colorscheme Monokai
+
+nnoremap <Leader>scd :MonotaSetDarkColorScheme<CR>
+nnoremap <Leader>scl :MonotaSetLightColorScheme<CR>
+
+call monota#SetColorScheme('dark')
+
+"colorscheme Monota
+"colorscheme Monokai
 "colorscheme solarized
 
-highlight Normal guifg=#ffffff
-highlight Normal ctermbg=NONE ctermfg=NONE
 
-highlight NonText guibg=NONE guifg=NONE
-highlight NonText ctermbg=NONE ctermfg=NONE
+autocmd FileType haskell,puppet,ruby,yml setlocal expandtab shiftwidth=4 softtabstop=4
 
-highlight Search guibg=LightBlue guifg=Black
-highlight Search ctermbg=LightBlue ctermfg=Black term=NONE
 
-highlight Pmenu ctermfg=White ctermbg=DarkGray cterm=NONE guifg=#ffffff guibg=#727272 gui=NONE
-highlight PmenuSel ctermfg=DarkBlue ctermbg=LightGray cterm=NONE guifg=#6565ff guibg=#e0e0e0 gui=NONE
+function! QuickGrep(pattern, files)
+    exec "vimgrep " . a:pattern . " " . a:files
+endfunction
+
 
 if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
     nnoremap <Leader>bf :CtrlPBuffer<CR>
@@ -49,6 +53,7 @@ if isdirectory(expand("~/.vim/bundle/YouCompleteMe/"))
     nnoremap <Leader>yq :YcmCompleter GetDocQuick<CR>
     nnoremap <Leader>yr :YcmCompleter GoToReferences<CR>
 endif
+
 
 UnBundle 'MarcWeber/vim-addon-mw-utils'
 UnBundle 'tomtom/tlib_vim'
@@ -91,7 +96,7 @@ UnBundle 'mattn/gist-vim'
 UnBundle 'scrooloose/nerdcommenter'
 UnBundle 'tpope/vim-commentary'
 UnBundle 'godlygeek/tabular'
-"UnBundle 'luochen1990/rainbow'
+UnBundle 'luochen1990/rainbow'
 "UnBundle 'majutsushi/tagbar'
 UnBundle 'Shougo/neocomplete.vim.git'
 UnBundle 'Shougo/neosnippet'

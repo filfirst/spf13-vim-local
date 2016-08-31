@@ -1,5 +1,5 @@
 let g:spf13_bundle_groups=['general', 'youcompleteme', 'programming', 'misc',]
-"let g:spf13_bundle_groups=['general', 'programming', 'misc',]
+let g:spf13_map_cr_omni_complete = 1
 let g:spf13_no_wrapRelMotion = 1
 let g:spf13_no_autochdir = 1
 let g:spf13_no_conceal = 1
@@ -7,6 +7,10 @@ let g:spf13_keep_trailing_whitespace = 1
 let g:spf13_leader='\'
 let g:airline_skip_empty_sections = 1
 let g:syntastic_mode_map = {'mode': 'passive'}
+"let g:indent_guides_enable_on_vim_startup=0
+
+let g:monotaDarkColorScheme = "Monota"
+let g:monotaLightColorScheme = "emacs"
 
 let g:NERDTreeIndicatorMapCustom = {
     \ "Modified"  : "*",
@@ -25,9 +29,9 @@ let g:signify_sign_delete            = '-'
 let g:signify_sign_change            = '*'
 
 if isdirectory(expand("~/.vim/bundle/YouCompleteMe/"))
-    let g:ycm_auto_trigger = 0
+    "let g:ycm_auto_trigger = 0
     let g:ycm_global_ycm_extra_conf = '~/.spf13-vim.local/ycm_extra_conf.py'
-    "let g:ycm_collect_identifiers_from_tags_files = 1
+    let g:ycm_collect_identifiers_from_tags_files = 1
     let g:ycm_confirm_extra_conf = 0
     "let g:ycm_show_diagnostics_ui = 0
     let g:ycm_max_diagnostics_to_display = 1000
