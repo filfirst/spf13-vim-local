@@ -30,6 +30,9 @@ function! QuickGrep(pattern, files)
 endfunction
 
 
+runtime! ftplugin/man.vim
+
+
 if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
     nnoremap <Leader>bf :CtrlPBuffer<CR>
 endif
@@ -63,7 +66,7 @@ UnBundle 'tomtom/tlib_vim'
 UnBundle 'tpope/vim-surround'
 UnBundle 'tpope/vim-repeat'
 UnBundle 'rhysd/conflict-marker.vim'
-UnBundle 'jiangmiao/auto-pairs'
+"UnBundle 'jiangmiao/auto-pairs'
 "UnBundle 'ctrlpvim/ctrlp.vim'
 "UnBundle 'tacahiroy/ctrlp-funky'
 UnBundle 'terryma/vim-multiple-cursors'

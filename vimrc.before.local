@@ -10,7 +10,7 @@ let g:syntastic_mode_map = {'mode': 'passive'}
 "let g:indent_guides_enable_on_vim_startup=0
 
 let g:monotaDarkColorScheme = "Monota"
-let g:monotaLightColorScheme = "emacs"
+let g:monotaLightColorScheme = "kate"
 
 let g:NERDTreeIndicatorMapCustom = {
     \ "Modified"  : "*",
