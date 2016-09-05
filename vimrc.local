@@ -22,12 +22,27 @@ call monota#SetColorScheme('dark')
 "colorscheme solarized
 
 
+inoremap jk <esc>
+
+
 autocmd FileType haskell,puppet,ruby,yml setlocal expandtab shiftwidth=4 softtabstop=4
 
 
 function! QuickGrep(pattern, files)
     exec "vimgrep " . a:pattern . " " . a:files
 endfunction
+
+
+function! ChangePythonFlake8Exe(flake8Exec)
+    let g:syntastic_python_flake8_exe = a:flake8Exec . " -m flake8"
+endfunction
+
+command! -nargs=1 ChangePythonFlake8ExePy call ChangePythonFlake8Exe(<f-args>)
+command! ChangePythonFlake8ExePy2 call ChangePythonFlake8Exe("python2")
+command! ChangePythonFlake8ExePy3 call ChangePythonFlake8Exe("python3")
+
+nnoremap <Leader>sp2 :ChangePythonFlake8ExePy2<CR>
+nnoremap <Leader>sp3 :ChangePythonFlake8ExePy3<CR>
 
 
 runtime! ftplugin/man.vim
@@ -40,7 +55,7 @@ endif
 if isdirectory(expand("~/.vim/bundle/syntastic/"))
     nnoremap <Leader>ss :SyntasticToggleMode<CR>
     nnoremap <Leader>sc :SyntasticCheck<CR>
-    nnoremap <Leader>sr :SyntasticRese<CR>
+    nnoremap <Leader>sr :SyntasticReset<CR>
 endif
 
 if isdirectory(expand("~/.vim/bundle/YouCompleteMe/"))
