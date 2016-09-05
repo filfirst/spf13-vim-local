@@ -22,7 +22,7 @@ call monota#SetColorScheme('dark')
 "colorscheme solarized
 
 
-inoremap jk <esc>
+inoremap jk <ESC>
 
 
 autocmd FileType haskell,puppet,ruby,yml setlocal expandtab shiftwidth=4 softtabstop=4
