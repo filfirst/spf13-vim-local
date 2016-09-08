@@ -8,7 +8,7 @@ let g:spf13_leader='\'
 let g:airline_skip_empty_sections = 1
 
 
-"let g:syntastic_mode_map = {'mode': 'passive'}
+let g:syntastic_mode_map = {'mode': 'passive'}
 
 if has("macunix")
     let g:syntastic_cpp_compiler = "clang++"
