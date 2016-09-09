@@ -33,7 +33,7 @@ let g:syntastic_python_checkers = ["flake8"]
 
 
 let g:monotaDarkColorScheme = "Monota"
-let g:monotaLightColorScheme = "kate"
+let g:monotaLightColorScheme = "MonotaLight"
 
 
 let g:NERDTreeIndicatorMapCustom = {

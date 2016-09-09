@@ -4,7 +4,7 @@ set wrap
 
 
 if has("macunix")
-    set guifont=Menlo:h13
+    set guifont=Menlo:h12
 elseif has("unix")
     set guifont=Ubuntu\ Mono\ 13
 else
@@ -136,7 +136,7 @@ UnBundle 'briancollins/vim-jst'
 UnBundle 'kchmck/vim-coffee-script'
 UnBundle 'amirh/HTML-AutoCloseTag'
 UnBundle 'hail2u/vim-css3-syntax'
-UnBundle 'gorodinskiy/vim-coloresque'
+"UnBundle 'gorodinskiy/vim-coloresque'
 UnBundle 'tpope/vim-haml'
 UnBundle 'mattn/emmet-vim'
 UnBundle 'tpope/vim-rails'
