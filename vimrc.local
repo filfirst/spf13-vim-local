@@ -73,8 +73,15 @@ if isdirectory(expand("~/.vim/bundle/YouCompleteMe/"))
 endif
 
 
-UnBundle 'MarcWeber/vim-addon-mw-utils'
-UnBundle 'tomtom/tlib_vim'
+" Deps - do not remove
+"
+"UnBundle 'gmarik/vundle'
+"UnBundle 'MarcWeber/vim-addon-mw-utils'
+"UnBundle 'tomtom/tlib_vim'
+"
+
+" General
+"
 "UnBundle 'scrooloose/nerdtree'
 "UnBundle 'altercation/vim-colors-solarized'
 "UnBundle 'spf13/vim-colors'
@@ -100,13 +107,21 @@ UnBundle 'vim-scripts/restore_view.vim'
 "UnBundle 'mhinz/vim-signify'
 UnBundle 'tpope/vim-abolish.git'
 UnBundle 'osyo-manga/vim-over'
-UnBundle 'kana/vim-textobj-user'
-UnBundle 'kana/vim-textobj-indent'
+"UnBundle 'kana/vim-textobj-user'
+"UnBundle 'kana/vim-textobj-indent'
 UnBundle 'gcmt/wildfire.vim'
+"
+
+" Writing
+"
 UnBundle 'reedes/vim-litecorrect'
 UnBundle 'reedes/vim-textobj-sentence'
 UnBundle 'reedes/vim-textobj-quote'
 UnBundle 'reedes/vim-wordy'
+"
+
+" General Programming
+"
 "UnBundle 'scrooloose/syntastic'
 "UnBundle 'tpope/vim-fugitive'
 UnBundle 'mattn/webapi-vim'
@@ -116,30 +131,84 @@ UnBundle 'tpope/vim-commentary'
 UnBundle 'godlygeek/tabular'
 UnBundle 'luochen1990/rainbow'
 "UnBundle 'majutsushi/tagbar'
+"
+
+" Snippets & AutoComplete
+"
 UnBundle 'Shougo/neocomplete.vim.git'
 UnBundle 'Shougo/neosnippet'
 UnBundle 'Shougo/neosnippet-snippets'
 "UnBundle 'Valloric/YouCompleteMe'
 "UnBundle 'SirVer/ultisnips'
 "UnBundle 'honza/vim-snippets'
+"
+
+" PHP
+"
 UnBundle 'spf13/PIV'
 UnBundle 'arnaud-lb/vim-php-namespace'
 UnBundle 'beyondwords/vim-twig'
+"
+
+" Python
 UnBundle 'klen/python-mode'
 UnBundle 'yssource/python.vim'
 UnBundle 'python_match.vim'
 UnBundle 'pythoncomplete'
+"
+
+" Javascript
+"
 UnBundle 'elzr/vim-json'
 UnBundle 'groenewege/vim-less'
 UnBundle 'pangloss/vim-javascript'
 UnBundle 'briancollins/vim-jst'
 UnBundle 'kchmck/vim-coffee-script'
+"
+
+" Haskell
+"
+if count(g:spf13_bundle_groups, 'haskell')
+    "UnBundle 'travitch/hasksyn'
+    "UnBundle 'dag/vim2hs'
+    UnBundle 'Twinside/vim-haskellConceal'
+    UnBundle 'Twinside/vim-haskellFold'
+    "UnBundle 'lukerandall/haskellmode-vim'
+    "UnBundle 'eagletmt/neco-ghc'
+    "UnBundle 'eagletmt/ghcmod-vim'
+    "UnBundle 'Shougo/vimproc.vim'
+    "UnBundle 'adinapoli/cumino'
+    "UnBundle 'bitc/vim-hdevtools'
+else
+    UnBundle 'travitch/hasksyn'
+    UnBundle 'dag/vim2hs'
+    UnBundle 'Twinside/vim-haskellConceal'
+    UnBundle 'Twinside/vim-haskellFold'
+    UnBundle 'lukerandall/haskellmode-vim'
+    UnBundle 'eagletmt/neco-ghc'
+    UnBundle 'eagletmt/ghcmod-vim'
+    UnBundle 'Shougo/vimproc.vim'
+    UnBundle 'adinapoli/cumino'
+    UnBundle 'bitc/vim-hdevtools'
+endif
+"
+
+" HTML
+"
 UnBundle 'amirh/HTML-AutoCloseTag'
 UnBundle 'hail2u/vim-css3-syntax'
 "UnBundle 'gorodinskiy/vim-coloresque'
 UnBundle 'tpope/vim-haml'
 UnBundle 'mattn/emmet-vim'
+"
+
+" Ruby
+"
 UnBundle 'tpope/vim-rails'
+"
+
+" Misc
+"
 "UnBundle 'rust-lang/rust.vim'
 UnBundle 'tpope/vim-markdown'
 UnBundle 'spf13/vim-preview'
@@ -147,6 +216,10 @@ UnBundle 'tpope/vim-cucumber'
 UnBundle 'cespare/vim-toml'
 UnBundle 'quentindecock/vim-cucumber-align-pipes'
 UnBundle 'saltstack/salt-vim'
+"
+
+" Customized
+"
 "UnBundle 'filfirst/Monota'
 "UnBundle 'Xuyuanp/nerdtree-git-plugin'
 "UnBundle 'DfrankUtil'

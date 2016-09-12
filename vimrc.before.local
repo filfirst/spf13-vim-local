@@ -1,4 +1,8 @@
-let g:spf13_bundle_groups=['general', 'youcompleteme', 'programming', 'misc',]
+let g:spf13_bundle_groups = ['general', 'youcompleteme', 'programming', 'misc',]
+
+if executable("ghc")
+    call add(g:spf13_bundle_groups, 'haskell')
+endif
 
 let g:spf13_no_easyWindows = 1
 let g:spf13_no_wrapRelMotion = 1
@@ -13,7 +17,7 @@ let g:spf13_leader='\'
 let g:airline_skip_empty_sections = 1
 
 
-let g:syntastic_mode_map = {'mode': 'passive'}
+"let g:syntastic_mode_map = {'mode': 'passive'}
 
 if has("macunix")
     let g:syntastic_cpp_compiler = "clang++"
@@ -59,7 +63,7 @@ let g:signify_sign_delete            = '-'
 let g:signify_sign_change            = '*'
 
 
-if isdirectory(expand("~/.vim/bundle/YouCompleteMe/"))
+if isdirectory(expand("~/.vim/bundle/YouCompleteMe"))
     "let g:ycm_auto_trigger = 0
     let g:ycm_global_ycm_extra_conf = '~/.spf13-vim.local/ycm_extra_conf.py'
     let g:ycm_collect_identifiers_from_tags_files = 1
@@ -70,4 +74,16 @@ if isdirectory(expand("~/.vim/bundle/YouCompleteMe/"))
     if isdirectory(expand("~/opt/rust/rustc/"))
         let g:ycm_rust_src_path = expand("~/opt/rust/rustc/src")
     endif
+    if isdirectory(expand("~/.vim/bundle/neco-ghc"))
+        let g:ycm_semantic_triggers = {'haskell' : ['.']}
+    endif
+endif
+
+
+if isdirectory(expand("~/.vim/bundle/vim2hs"))
+    let g:haskell_conceal = 0
+endif
+
+if isdirectory(expand("~/.vim/bundle/haskellmode-vim"))
+    let g:haddock_browser = '/Applications/Google Chrome.app'
 endif
