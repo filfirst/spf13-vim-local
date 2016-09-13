@@ -169,16 +169,16 @@ UnBundle 'kchmck/vim-coffee-script'
 " Haskell
 "
 if count(g:spf13_bundle_groups, 'haskell')
-    "UnBundle 'travitch/hasksyn'
-    "UnBundle 'dag/vim2hs'
+    UnBundle 'travitch/hasksyn'
+    UnBundle 'dag/vim2hs'
     UnBundle 'Twinside/vim-haskellConceal'
     UnBundle 'Twinside/vim-haskellFold'
     "UnBundle 'lukerandall/haskellmode-vim'
     "UnBundle 'eagletmt/neco-ghc'
     "UnBundle 'eagletmt/ghcmod-vim'
     "UnBundle 'Shougo/vimproc.vim'
-    "UnBundle 'adinapoli/cumino'
-    "UnBundle 'bitc/vim-hdevtools'
+    UnBundle 'adinapoli/cumino'
+    UnBundle 'bitc/vim-hdevtools'
 else
     UnBundle 'travitch/hasksyn'
     UnBundle 'dag/vim2hs'

@@ -85,7 +85,17 @@ if isdirectory(expand("~/.vim/bundle/vim2hs"))
 endif
 
 if isdirectory(expand("~/.vim/bundle/haskellmode-vim"))
-    let g:haddock_browser = '/Applications/Google Chrome.app'
+    if has("macunix")
+        let g:haddock_browser = 'open'
+        let g:haddock_browser_callformat = '%s %s'
+    elseif has("unix")
+        " TODO
+    else
+        " Use default
+    endif
+    " Should add following to enable some feature, but it conflict
+    " with neco-ghc
+    "au BufEnter *.hs compiler ghc
 endif
 
 if isdirectory(expand("~/.vim/bundle/tagbar")) && executable("hasktags")
