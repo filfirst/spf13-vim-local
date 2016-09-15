@@ -22,7 +22,7 @@ BASE_FLAGS = [
     '-I/usr/local/inlude',
 
     '-isystem', '/usr/local/Frameworks/Python.framework/Versions/3.5/Headers',
-    '-isysroot', '/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk',
+    '-isysroot', '/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk',
 ]
 
 

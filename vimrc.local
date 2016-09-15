@@ -1,10 +1,14 @@
 set nospell
 set lines&
 set wrap
+set breakindent
+set showbreak=›
+"set showbreak=•
+set breakindentopt=shift:2,min:30,sbr
 
 
 if has("macunix")
-    set guifont=Menlo:h12
+    set guifont=SF\ Mono:h12
 elseif has("unix")
     set guifont=Ubuntu\ Mono\ 13
 else
