@@ -79,6 +79,9 @@ if isdirectory(expand("~/.vim/bundle/YouCompleteMe"))
     endif
 endif
 
+if isdirectory(expand("~/.vim/bundle/indexer.tar.gz"))
+    let g:indexer_disableCtagsWarning = 1
+endif
 
 if isdirectory(expand("~/.vim/bundle/vim2hs"))
     let g:haskell_conceal = 0
