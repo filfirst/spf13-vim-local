@@ -1,4 +1,4 @@
-let g:spf13_bundle_groups = ['general', 'youcompleteme', 'programming', 'misc',]
+let g:spf13_bundle_groups = ['general', 'youcompleteme', 'programming', 'html', 'misc',]
 
 if executable("ghc")
     call add(g:spf13_bundle_groups, 'haskell')

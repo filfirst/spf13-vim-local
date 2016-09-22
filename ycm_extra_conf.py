@@ -20,6 +20,8 @@ BASE_FLAGS = [
     '-I/usr/include',
     '-I/usr/local/lib',
     '-I/usr/local/inlude',
+    '-I/usr/local/opt/openssl/include',
+    '-I/usr/local/opt/icu4c/include',
 
     '-isystem', '/usr/local/Frameworks/Python.framework/Versions/3.5/Headers',
     '-isysroot', '/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk',

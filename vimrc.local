@@ -2,7 +2,8 @@ set nospell
 set lines&
 set wrap
 set breakindent
-set showbreak=›
+set showbreak=»
+"set showbreak=›
 "set showbreak=•
 set breakindentopt=shift:2,min:30,sbr
 
@@ -132,7 +133,7 @@ UnBundle 'mattn/webapi-vim'
 UnBundle 'mattn/gist-vim'
 UnBundle 'scrooloose/nerdcommenter'
 UnBundle 'tpope/vim-commentary'
-UnBundle 'godlygeek/tabular'
+"UnBundle 'godlygeek/tabular'
 UnBundle 'luochen1990/rainbow'
 "UnBundle 'majutsushi/tagbar'
 "
@@ -199,8 +200,8 @@ endif
 
 " HTML
 "
-UnBundle 'amirh/HTML-AutoCloseTag'
-UnBundle 'hail2u/vim-css3-syntax'
+"UnBundle 'amirh/HTML-AutoCloseTag'
+"UnBundle 'hail2u/vim-css3-syntax'
 "UnBundle 'gorodinskiy/vim-coloresque'
 UnBundle 'tpope/vim-haml'
 UnBundle 'mattn/emmet-vim'
@@ -214,7 +215,7 @@ UnBundle 'tpope/vim-rails'
 " Misc
 "
 "UnBundle 'rust-lang/rust.vim'
-UnBundle 'tpope/vim-markdown'
+"UnBundle 'tpope/vim-markdown'
 UnBundle 'spf13/vim-preview'
 UnBundle 'tpope/vim-cucumber'
 UnBundle 'cespare/vim-toml'
