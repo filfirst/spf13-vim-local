@@ -226,6 +226,7 @@ UnBundle 'saltstack/salt-vim'
 " Customized
 "
 "UnBundle 'filfirst/Monota'
+"UnBundle 'octol/vim-cpp-enhanced-highlight'
 "UnBundle 'Xuyuanp/nerdtree-git-plugin'
 "UnBundle 'DfrankUtil'
 "UnBundle 'vimprj'
