@@ -80,6 +80,7 @@ if isdirectory(expand("~/.vim/bundle/YouCompleteMe"))
 endif
 
 if isdirectory(expand("~/.vim/bundle/indexer.tar.gz"))
+    let g:indexer_ctagsCommandLineOptions="--c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+iaSl --extra=+q"
     let g:indexer_disableCtagsWarning = 1
 endif
 

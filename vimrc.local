@@ -16,6 +16,11 @@ else
     " Use default
 endif
 
+set guioptions-=l
+set guioptions-=L
+set guioptions-=r
+set guioptions-=R
+
 
 nnoremap <Leader>scd :MonotaSetDarkColorScheme<CR>
 nnoremap <Leader>scl :MonotaSetLightColorScheme<CR>
