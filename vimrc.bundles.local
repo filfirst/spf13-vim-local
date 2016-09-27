@@ -4,3 +4,8 @@ Bundle 'Xuyuanp/nerdtree-git-plugin'
 Bundle 'DfrankUtil'
 Bundle 'vimprj'
 Bundle 'indexer.tar.gz'
+
+
+if filereadable(expand("~/.vimrc.bundles.self"))
+    source ~/.vimrc.bundles.self
+endif

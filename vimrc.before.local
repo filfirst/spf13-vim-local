@@ -143,3 +143,8 @@ if isdirectory(expand("~/.vim/bundle/tagbar")) && executable("hasktags")
         \ }
     \ }
 endif
+
+
+if filereadable(expand("~/.vimrc.before.self"))
+    source ~/.vimrc.before.self
+endif

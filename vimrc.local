@@ -236,3 +236,8 @@ UnBundle 'saltstack/salt-vim'
 "UnBundle 'DfrankUtil'
 "UnBundle 'vimprj'
 "UnBundle 'indexer.tar.gz'
+
+
+if filereadable(expand("~/.vimrc.self"))
+    source ~/.vimrc.self
+endif
