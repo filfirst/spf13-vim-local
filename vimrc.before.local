@@ -15,52 +15,60 @@ let g:spf13_no_conceal = 1
 let g:spf13_keep_trailing_whitespace = 1
 let g:spf13_leader='\'
 let g:airline_skip_empty_sections = 1
-
-
-"let g:syntastic_mode_map = {'mode': 'passive'}
-
-if has("macunix")
-    let g:syntastic_cpp_compiler = "clang++"
-endif
-
-let g:syntastic_cpp_compiler_options="-std=c++14"
-let g:syntastic_cpp_include_dirs = ["/usr/local/include"]
-let g:syntastic_cpp_auto_refresh_includes = 1
-
-if has("macunix")
-    let g:syntastic_c_compiler = "clang"
-endif
-
-let g:syntastic_c_compiler_options="-std=c99"
-let g:syntastic_c_include_dirs = ["/usr/local/include"]
-let g:syntastic_c_auto_refresh_includes = 1
-
-let g:syntastic_python_checkers = ["flake8"]
-
-
 "let g:indent_guides_enable_on_vim_startup=0
 
 
-let g:monotaDarkColorScheme = "Monota"
-let g:monotaLightColorScheme = "MonotaLight"
+if isdirectory(expand("~/.vim/bundle/Monota"))
+    let g:monotaDarkColorScheme = "Monota"
+    let g:monotaLightColorScheme = "MonotaLight"
+endif
 
 
-let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "*",
-    \ "Staged"    : "+",
-    \ "Untracked" : "?",
-    \ "Renamed"   : "=",
-    \ "Unmerged"  : "!",
-    \ "Deleted"   : "-",
-    \ "Dirty"     : "x",
-    \ "Clean"     : "v",
-    \ "Unknown"   : "#"
-    \ }
+if isdirectory(expand("~/.vim/bundle/syntastic"))
+    "let g:syntastic_mode_map = {'mode': 'passive'}
+
+    if has("macunix")
+        let g:syntastic_cpp_compiler = "clang++"
+    endif
+
+    let g:syntastic_cpp_compiler_options="-std=c++14"
+    let g:syntastic_cpp_include_dirs = ["/usr/local/include"]
+    let g:syntastic_cpp_auto_refresh_includes = 1
+
+    if has("macunix")
+        let g:syntastic_c_compiler = "clang"
+    endif
+
+    let g:syntastic_c_compiler_options="-std=c99"
+    let g:syntastic_c_include_dirs = ["/usr/local/include"]
+    let g:syntastic_c_auto_refresh_includes = 1
+
+    if executable("flake8")
+        let g:syntastic_python_checkers = ["flake8"]
+    endif
+endif
 
 
-let g:signify_sign_add               = '+'
-let g:signify_sign_delete            = '-'
-let g:signify_sign_change            = '*'
+if isdirectory(expand("~/.vim/bundle/nerdtree-git-plugin"))
+    let g:NERDTreeIndicatorMapCustom = {
+        \ "Modified"  : "*",
+        \ "Staged"    : "+",
+        \ "Untracked" : "?",
+        \ "Renamed"   : "=",
+        \ "Unmerged"  : "!",
+        \ "Deleted"   : "-",
+        \ "Dirty"     : "x",
+        \ "Clean"     : "v",
+        \ "Unknown"   : "#"
+        \ }
+endif
+
+
+if isdirectory(expand("~/.vim/bundle/vim-signify"))
+    let g:signify_sign_add               = '+'
+    let g:signify_sign_delete            = '-'
+    let g:signify_sign_change            = '*'
+endif
 
 
 if isdirectory(expand("~/.vim/bundle/YouCompleteMe"))

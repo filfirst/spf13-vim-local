@@ -22,14 +22,12 @@ set guioptions-=r
 set guioptions-=R
 
 
-nnoremap <Leader>scd :MonotaSetDarkColorScheme<CR>
-nnoremap <Leader>scl :MonotaSetLightColorScheme<CR>
+if isdirectory(expand("~/.vim/bundle/Monota"))
+    nnoremap <Leader>scd :MonotaSetDarkColorScheme<CR>
+    nnoremap <Leader>scl :MonotaSetLightColorScheme<CR>
 
-call monota#SetColorScheme('dark')
-
-"colorscheme Monota
-"colorscheme Monokai
-"colorscheme solarized
+    call monota#SetColorScheme('dark')
+endif
 
 
 inoremap jk <ESC>
@@ -43,16 +41,18 @@ function! QuickGrep(pattern, files)
 endfunction
 
 
-function! ChangePythonFlake8Exe(flake8Exec)
-    let g:syntastic_python_flake8_exe = a:flake8Exec . " -m flake8"
-endfunction
+if isdirectory(expand("~/.vim/bundle/syntastic")) && executable("flake8")
+    function! ChangePythonFlake8Exe(flake8Exec)
+        let g:syntastic_python_flake8_exe = a:flake8Exec . " -m flake8"
+    endfunction
 
-command! -nargs=1 ChangePythonFlake8ExePy call ChangePythonFlake8Exe(<f-args>)
-command! ChangePythonFlake8ExePy2 call ChangePythonFlake8Exe("python2")
-command! ChangePythonFlake8ExePy3 call ChangePythonFlake8Exe("python3")
+    command! -nargs=1 ChangePythonFlake8ExePy call ChangePythonFlake8Exe(<f-args>)
+    command! ChangePythonFlake8ExePy2 call ChangePythonFlake8Exe("python2")
+    command! ChangePythonFlake8ExePy3 call ChangePythonFlake8Exe("python3")
 
-nnoremap <Leader>sp2 :ChangePythonFlake8ExePy2<CR>
-nnoremap <Leader>sp3 :ChangePythonFlake8ExePy3<CR>
+    nnoremap <Leader>sp2 :ChangePythonFlake8ExePy2<CR>
+    nnoremap <Leader>sp3 :ChangePythonFlake8ExePy3<CR>
+endif
 
 
 runtime! ftplugin/man.vim
