@@ -46,6 +46,10 @@ if isdirectory(expand("~/.vim/bundle/syntastic"))
     if executable("flake8")
         let g:syntastic_python_checkers = ["flake8"]
     endif
+
+    "if isdirectory(expand("~/.vim/bundle/swift.vim")) && executable("swift")
+    "    let g:syntastic_swift_checkers = ['swiftpm']
+    "endif
 endif
 
 

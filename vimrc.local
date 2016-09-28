@@ -237,6 +237,10 @@ UnBundle 'saltstack/salt-vim'
 "UnBundle 'vimprj'
 "UnBundle 'indexer.tar.gz'
 
+if executable("swift")
+    "UnBundle 'keith/swift.vim'
+endif
+
 
 if filereadable(expand("~/.vimrc.self"))
     source ~/.vimrc.self

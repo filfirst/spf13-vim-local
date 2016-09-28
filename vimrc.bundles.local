@@ -5,6 +5,10 @@ Bundle 'DfrankUtil'
 Bundle 'vimprj'
 Bundle 'indexer.tar.gz'
 
+if executable("swift")
+    Bundle 'keith/swift.vim'
+endif
+
 
 if filereadable(expand("~/.vimrc.bundles.self"))
     source ~/.vimrc.bundles.self
