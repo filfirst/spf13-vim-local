@@ -121,6 +121,7 @@ def FlagsForInclude(root):
             for dir_path in dirnames:
                 real_path = os.path.join(dirroot, dir_path)
                 flags = flags + ["-I" + real_path]
+        flags = flags + ["-I" + include_path]
         return flags
     except:
         return None
@@ -148,7 +149,8 @@ def FlagsForFile(filename):
 
     compilation_db_flags = FlagsForCompilationDatabase(root, filename)
     if not compilation_db_flags:
-        compilation_db_flags = FlagsForCompilationDatabase(os.getcwd(), filename)
+        compilation_db_flags = FlagsForCompilationDatabase(os.getcwd(),
+                                                           filename)
 
     if compilation_db_flags:
         final_flags = compilation_db_flags
