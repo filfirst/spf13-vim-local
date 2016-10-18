@@ -48,6 +48,8 @@ install_file() {
     local target_file=$4
     local del_backup=$5
 
+    mkdir -p $target_dir
+
     backup "$target_dir" "$target_file"
     exit_if_error $?
 
