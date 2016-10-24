@@ -32,6 +32,8 @@ endif
 
 inoremap jk <ESC>
 
+nnoremap <Leader>88 :set cc=80<CR>
+nnoremap <Leader>89 :set cc=<CR>
 
 autocmd FileType haskell,puppet,ruby,yml setlocal expandtab shiftwidth=4 softtabstop=4
 
