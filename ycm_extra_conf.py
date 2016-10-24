@@ -17,8 +17,7 @@ BASE_FLAGS = [
     '-Wno-long-long',
     '-Wno-variadic-macros',
     '-fexceptions',
-    '-ferror-limit=10000',
-    '-g3',
+    '-DNDEBUG',
     '-std=c++14',
     '-xc++',
 
@@ -79,7 +78,14 @@ def find_nearest_file(path, target):
         return find_nearest_file(parent, target)
 
 
-def process_ycm_project_include_flags(root, flags):
+def process_ycm_project_include_flags(root, flags, traverse):
+    if traverse is False:
+        flag = '-I' + root
+        if flag not in flags:
+            flags.append(flag)
+
+        return
+
     for dirroot, dirnames, filenames in os.walk(root):
         flag = '-I' + dirroot
         if flag in flags:
@@ -128,10 +134,26 @@ def flags_for_ycm_project(root):
             candidate_roots = [ycm_project_root]
 
         for candidate_root in candidate_roots:
-            if not os.path.isabs(candidate_root):
-                candidate_root = os.path.join(ycm_project_root, candidate_root)
-            process_ycm_project_include_flags(candidate_root,
-                                              YCM_PROJECT_FLAGS)
+            traverse = True
+            real_root = ''
+            try:
+                if type(candidate_root) is str:
+                    real_root = candidate_root
+                elif type(candidate_root) is dict:
+                    real_root = candidate_root['path']
+                    if 'deep' in candidate_root:
+                        traverse = candidate_root['deep']
+                else:
+                    continue
+
+                if not os.path.isabs(real_root):
+                    real_root = os.path.join(ycm_project_root, real_root)
+            except:
+                continue
+
+            process_ycm_project_include_flags(real_root,
+                                              YCM_PROJECT_FLAGS,
+                                              traverse)
 
         return YCM_PROJECT_FLAGS
     except:
@@ -168,7 +190,7 @@ def make_relative_paths_in_flags_absolute(flags, working_directory):
         return list(flags)
     new_flags = []
     make_next_absolute = False
-    path_flags = [ '-isystem', '-I', '-iquote', '--sysroot=' ]
+    path_flags = ['-isystem', '-I', '-iquote', '--sysroot=']
     for flag in flags:
         new_flag = flag
 
@@ -183,7 +205,7 @@ def make_relative_paths_in_flags_absolute(flags, working_directory):
                 break
 
             if flag.startswith(path_flag):
-                path = flag[ len(path_flag): ]
+                path = flag[len(path_flag):]
                 new_flag = path_flag + os.path.join(working_directory, path)
                 break
 
