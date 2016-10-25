@@ -62,9 +62,21 @@ HEADER_EXTENSIONS = [
 ]
 
 
+HEADER_PATHS = [
+    'include',
+    'inc',
+    'headers'
+]
+
+
 def is_header_file(filename):
     extension = os.path.splitext(filename)[1]
     return extension in HEADER_EXTENSIONS
+
+
+def is_header_path(path):
+    name = os.path.basename(path)
+    return name.lower() in HEADER_PATHS
 
 
 def find_nearest_file(path, target):
@@ -91,16 +103,26 @@ def process_ycm_project_include_flags(root, flags, traverse):
         if flag in flags:
             continue
 
+        if is_header_path(dirroot):
+            flags.append(flag)
+            continue
+
         for f in filenames:
             if is_header_file(f):
-                flags.append(flag)
+                temp = [flag]
                 traverse_dir = dirroot
+
                 while traverse_dir != root:
                     traverse_dir = os.path.dirname(traverse_dir)
                     flag = '-I' + traverse_dir
+                    if is_header_path(traverse_dir):
+                        temp = [] if flag in flags else [flag]
+                        break
                     if flag in flags:
                         break
-                    flags.append(flag)
+                    temp.append(flag)
+
+                flags.extend(temp)
                 break
 
 
