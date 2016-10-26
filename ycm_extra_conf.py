@@ -37,7 +37,9 @@ if SYSTEM_NAME == 'Darwin':
         '-isysroot', '/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk',
     ]
 elif SYSTEM_NAME == 'Linux':
-    SYSTEM_SPECIFIED_FLAGS = []
+    SYSTEM_SPECIFIED_FLAGS = [
+        '-I/usr/include/c++/5'
+    ]
 else:
     SYSTEM_SPECIFIED_FLAGS = []
 
