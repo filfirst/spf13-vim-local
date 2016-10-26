@@ -38,7 +38,7 @@ if SYSTEM_NAME == 'Darwin':
     ]
 elif SYSTEM_NAME == 'Linux':
     SYSTEM_SPECIFIED_FLAGS = [
-        '-I/usr/include/c++/5'
+        '-I/usr/include/c++/5',
     ]
 else:
     SYSTEM_SPECIFIED_FLAGS = []
