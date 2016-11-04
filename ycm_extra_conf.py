@@ -1,5 +1,6 @@
 import os
 import os.path
+import sys
 import json
 import ycm_core
 
@@ -152,6 +153,9 @@ def flags_for_ycm_project(root):
                     candidate_roots = include_field
                 elif type(include_field) is str:
                     candidate_roots = [include_field]
+                elif sys.version_info.major == 2:
+                    if type(include_field) is unicode:
+                        candidate_roots = [include_field]
             except:
                 pass
 
@@ -168,6 +172,9 @@ def flags_for_ycm_project(root):
                     real_root = candidate_root['path']
                     if 'deep' in candidate_root:
                         traverse = candidate_root['deep']
+                elif sys.version_info.major == 2:
+                    if type(candidate_root) is unicode:
+                        real_root = candidate_root
                 else:
                     continue
 
