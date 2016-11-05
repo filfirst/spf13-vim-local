@@ -6,7 +6,9 @@ set showbreak=»
 "set showbreak=›
 "set showbreak=•
 set breakindentopt=shift:2,min:30,sbr
-
+set foldmethod=syntax
+"set foldmethod=indent
+set nofoldenable
 
 if has("macunix")
     set guifont=SF\ Mono:h12
@@ -113,7 +115,7 @@ UnBundle 'bling/vim-bufferline'
 "UnBundle 'easymotion/vim-easymotion'
 "UnBundle 'jistr/vim-nerdtree-tabs'
 "UnBundle 'flazz/vim-colorschemes'
-UnBundle 'mbbill/undotree'
+"UnBundle 'mbbill/undotree'
 UnBundle 'nathanaelkane/vim-indent-guides'
 UnBundle 'vim-scripts/restore_view.vim'
 "UnBundle 'mhinz/vim-signify'
@@ -235,6 +237,7 @@ UnBundle 'saltstack/salt-vim'
 "UnBundle 'filfirst/Monota'
 "UnBundle 'octol/vim-cpp-enhanced-highlight'
 "UnBundle 'Xuyuanp/nerdtree-git-plugin'
+"UnBundle 'pboettch/vim-cmake-syntax'
 "UnBundle 'DfrankUtil'
 "UnBundle 'vimprj'
 "UnBundle 'indexer.tar.gz'

@@ -1,6 +1,7 @@
 Bundle 'filfirst/Monota'
 Bundle 'octol/vim-cpp-enhanced-highlight'
 Bundle 'Xuyuanp/nerdtree-git-plugin'
+Bundle 'pboettch/vim-cmake-syntax'
 Bundle 'DfrankUtil'
 Bundle 'vimprj'
 Bundle 'indexer.tar.gz'
