@@ -40,9 +40,10 @@ nnoremap <Leader>89 :set cc=<CR>
 autocmd FileType haskell,puppet,ruby,yml setlocal expandtab shiftwidth=4 softtabstop=4
 
 
-function! QuickGrep(pattern, files)
-    exec "vimgrep " . a:pattern . " " . a:files
-endfunction
+if isdirectory(expand("~/.vim/bundle/nerdtree"))
+    unmap <C-e>
+    map <C-l> <plug>NERDTreeTabsToggle<CR>
+endif
 
 
 if isdirectory(expand("~/.vim/bundle/syntastic")) && executable("flake8")
