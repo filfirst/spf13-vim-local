@@ -31,6 +31,8 @@ if isdirectory(expand("~/.vim/bundle/Monota"))
     call monota#SetColorScheme('dark')
 endif
 
+nnoremap <Leader>ta :set completeopt+=preview<CR>
+nnoremap <Leader>at :set completeopt-=preview<CR>
 
 inoremap jk <ESC>
 
@@ -211,7 +213,7 @@ endif
 
 " HTML
 "
-"UnBundle 'amirh/HTML-AutoCloseTag'
+UnBundle 'amirh/HTML-AutoCloseTag'
 "UnBundle 'hail2u/vim-css3-syntax'
 "UnBundle 'gorodinskiy/vim-coloresque'
 UnBundle 'tpope/vim-haml'

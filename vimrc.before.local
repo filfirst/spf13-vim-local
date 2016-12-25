@@ -61,8 +61,8 @@ if isdirectory(expand("~/.vim/bundle/nerdtree-git-plugin"))
         \ "Renamed"   : "=",
         \ "Unmerged"  : "!",
         \ "Deleted"   : "-",
-        \ "Dirty"     : "x",
-        \ "Clean"     : "v",
+        \ "Dirty"     : "~",
+        \ "Clean"     : "%",
         \ "Unknown"   : "#"
         \ }
 endif
