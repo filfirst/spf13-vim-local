@@ -87,6 +87,9 @@ if isdirectory(expand("~/.vim/bundle/YouCompleteMe/"))
     nnoremap <Leader>yd :YcmCompleter GetDoc<CR>
     nnoremap <Leader>yq :YcmCompleter GetDocQuick<CR>
     nnoremap <Leader>yr :YcmCompleter GoToReferences<CR>
+    nnoremap <Leader>ypp :YcmCompleter RestartServer python<CR>
+    nnoremap <Leader>yp2 :YcmCompleter RestartServer python2<CR>
+    nnoremap <Leader>yp3 :YcmCompleter RestartServer python3<CR>
 endif
 
 
