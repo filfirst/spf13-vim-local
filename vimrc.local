@@ -264,6 +264,10 @@ UnBundle 'saltstack/salt-vim'
 "UnBundle 'vimprj'
 "UnBundle 'indexer.tar.gz'
 
+if executable("R")
+    "UnBundle 'jalvesaq/Nvim-R'
+endif
+
 if executable("swift")
     "UnBundle 'keith/swift.vim'
 endif

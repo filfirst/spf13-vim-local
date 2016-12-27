@@ -6,6 +6,10 @@ Bundle 'DfrankUtil'
 Bundle 'vimprj'
 Bundle 'indexer.tar.gz'
 
+if executable("R")
+    Bundle 'jalvesaq/Nvim-R'
+endif
+
 if executable("swift")
     Bundle 'keith/swift.vim'
 endif
