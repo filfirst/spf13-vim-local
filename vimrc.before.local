@@ -18,6 +18,8 @@ let g:airline_skip_empty_sections = 1
 "let g:indent_guides_enable_on_vim_startup=0
 let g:AutoPairsMultilineClose = 0
 
+let g:markdown_fenced_languages = ['cpp', 'c', 'python', 'html', 'bash=sh']
+
 if isdirectory(expand("~/.vim/bundle/Monota"))
     let g:monotaDarkColorScheme = "Monota"
     let g:monotaLightColorScheme = "MonotaLight"

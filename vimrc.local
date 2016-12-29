@@ -246,7 +246,7 @@ UnBundle 'tpope/vim-rails'
 " Misc
 "
 "UnBundle 'rust-lang/rust.vim'
-"UnBundle 'tpope/vim-markdown'
+UnBundle 'tpope/vim-markdown'
 UnBundle 'spf13/vim-preview'
 UnBundle 'tpope/vim-cucumber'
 UnBundle 'cespare/vim-toml'
