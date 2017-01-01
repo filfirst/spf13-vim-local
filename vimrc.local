@@ -54,11 +54,28 @@ if isdirectory(expand("~/.vim/bundle/syntastic")) && executable("flake8")
     endfunction
 
     command! -nargs=1 ChangePythonFlake8ExePy call ChangePythonFlake8Exe(<f-args>)
-    command! ChangePythonFlake8ExePy2 call ChangePythonFlake8Exe("python2")
-    command! ChangePythonFlake8ExePy3 call ChangePythonFlake8Exe("python3")
+
+    if executable("/usr/local/bin/python2")
+        command! ChangePythonFlake8ExePy2 call ChangePythonFlake8Exe("/usr/local/bin/python2")
+    elseif executable("/usr/bin/python2")
+        command! ChangePythonFlake8ExePy2 call ChangePythonFlake8Exe("/usr/bin/python2")
+    else
+        command! ChangePythonFlake8ExePy2 call ChangePythonFlake8Exe("python2")
+    endif
+
+    if executable("/usr/local/bin/python3")
+        command! ChangePythonFlake8ExePy3 call ChangePythonFlake8Exe("/usr/local/bin/python3")
+    elseif executable("/usr/bin/python3")
+        command! ChangePythonFlake8ExePy3 call ChangePythonFlake8Exe("/usr/bin/python3")
+    else
+        command! ChangePythonFlake8ExePy3 call ChangePythonFlake8Exe("python3")
+    endif
+
+    command! ChangePythonFlake8ExePython call ChangePythonFlake8Exe("python")
 
     nnoremap <Leader>sp2 :ChangePythonFlake8ExePy2<CR>
     nnoremap <Leader>sp3 :ChangePythonFlake8ExePy3<CR>
+    nnoremap <Leader>spp :ChangePythonFlake8ExePython<CR>
 endif
 
 
@@ -88,7 +105,7 @@ if isdirectory(expand("~/.vim/bundle/YouCompleteMe/"))
     nnoremap <Leader>yq :YcmCompleter GetDocQuick<CR>
     nnoremap <Leader>yr :YcmCompleter GoToReferences<CR>
 
-    nnoremap <Leader>ypp :YcmCompleter RestartServer python<CR>
+    nnoremap <Leader>ypp :YcmCompleter RestartServer python<CR> :ChangePythonFlake8ExePython<CR>
 
     if executable("/usr/local/bin/python2")
         if isdirectory(expand("~/.vim/bundle/syntastic")) && executable("flake8")
