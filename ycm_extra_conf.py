@@ -35,7 +35,7 @@ if SYSTEM_NAME == 'Darwin':
         '-I/usr/local/opt/openssl/include',
         '-I/usr/local/opt/qt5/include',
         '-I/usr/local/opt/icu4c/include',
-        '-isystem', '/usr/local/Frameworks/Python.framework/Versions/3.5/Headers',
+        '-isystem', '/usr/local/Frameworks/Python.framework/Versions/3.6/Headers',
         '-isysroot', '/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk',
     ]
 elif SYSTEM_NAME == 'Linux':
