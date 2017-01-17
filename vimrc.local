@@ -92,6 +92,26 @@ if isdirectory(expand("~/.vim/bundle/syntastic/"))
     nnoremap <Leader>sr :SyntasticReset<CR>
 endif
 
+
+if has("autocmd") && exists("+omnifunc")
+    autocmd Filetype *
+        \if &omnifunc == "" |
+        \setlocal omnifunc=syntaxcomplete#Complete |
+        \endif
+endif
+
+"inoremap <expr> <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
+inoremap <expr> <CR>     pumvisible() ? "\<C-y>" : "\<CR>"
+inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
+inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
+inoremap <expr> <C-d>      pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<C-d>"
+inoremap <expr> <C-u>      pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<C-u>"
+
+set completeopt=menu,preview,longest
+
+set previewheight=3
+
+
 if isdirectory(expand("~/.vim/bundle/YouCompleteMe/"))
     nnoremap <Leader>ya :YcmCompleter GoToDeclaration<CR>
     nnoremap <Leader>yg :YcmCompleter GoToDefinition<CR>
