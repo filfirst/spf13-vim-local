@@ -35,6 +35,8 @@ if SYSTEM_NAME == 'Darwin':
         '-I/usr/local/opt/openssl/include',
         '-I/usr/local/opt/qt5/include',
         '-I/usr/local/opt/icu4c/include',
+        '-I/usr/local/include/gtk-3.0',
+        '-I/usr/local/include/gtkmm-3.0',
         '-isystem', '/usr/local/Frameworks/Python.framework/Versions/3.6/Headers',
         '-isysroot', '/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk',
     ]
