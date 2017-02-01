@@ -321,9 +321,9 @@ UnBundle 'saltstack/salt-vim'
 "UnBundle 'octol/vim-cpp-enhanced-highlight'
 "UnBundle 'Xuyuanp/nerdtree-git-plugin'
 "UnBundle 'pboettch/vim-cmake-syntax'
-"UnBundle 'DfrankUtil'
-"UnBundle 'vimprj'
-"UnBundle 'indexer.tar.gz'
+UnBundle 'DfrankUtil'
+UnBundle 'vimprj'
+UnBundle 'indexer.tar.gz'
 
 if executable("R")
     "UnBundle 'jalvesaq/Nvim-R'
@@ -333,6 +333,9 @@ if executable("swift")
     "UnBundle 'keith/swift.vim'
 endif
 
+if executable("dot")
+    "UnBundle 'wannesm/wmgraphviz.vim'
+endif
 
 if filereadable(expand("~/.vimrc.self"))
     source ~/.vimrc.self
