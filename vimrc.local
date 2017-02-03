@@ -182,13 +182,13 @@ endif
 "UnBundle 'scrooloose/nerdtree'
 "UnBundle 'altercation/vim-colors-solarized'
 "UnBundle 'spf13/vim-colors'
-"UnBundle 'tpope/vim-surround'
+UnBundle 'tpope/vim-surround'
 UnBundle 'tpope/vim-repeat'
 UnBundle 'rhysd/conflict-marker.vim'
 "UnBundle 'jiangmiao/auto-pairs'
 "UnBundle 'ctrlpvim/ctrlp.vim'
 "UnBundle 'tacahiroy/ctrlp-funky'
-"UnBundle 'terryma/vim-multiple-cursors'
+UnBundle 'terryma/vim-multiple-cursors'
 "UnBundle 'vim-scripts/sessionman.vim'
 UnBundle 'matchit.zip'
 "UnBundle 'vim-airline/vim-airline'
@@ -331,10 +331,6 @@ endif
 
 if executable("swift")
     "UnBundle 'keith/swift.vim'
-endif
-
-if executable("dot")
-    "UnBundle 'wannesm/wmgraphviz.vim'
 endif
 
 if filereadable(expand("~/.vimrc.self"))

@@ -14,10 +14,6 @@ if executable("swift")
     Bundle 'keith/swift.vim'
 endif
 
-if executable("dot")
-    Bundle 'wannesm/wmgraphviz.vim'
-endif
-
 if filereadable(expand("~/.vimrc.bundles.self"))
     source ~/.vimrc.bundles.self
 endif
