@@ -318,8 +318,8 @@ UnBundle 'saltstack/salt-vim'
 " Customized
 "
 "UnBundle 'filfirst/Monota'
+"UnBundle 'filfirst/nerdtree-git-plugin'
 "UnBundle 'octol/vim-cpp-enhanced-highlight'
-"UnBundle 'Xuyuanp/nerdtree-git-plugin'
 "UnBundle 'pboettch/vim-cmake-syntax'
 UnBundle 'DfrankUtil'
 UnBundle 'vimprj'

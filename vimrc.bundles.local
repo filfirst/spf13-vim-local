@@ -1,6 +1,6 @@
 Bundle 'filfirst/Monota'
+Bundle 'filfirst/nerdtree-git-plugin'
 Bundle 'octol/vim-cpp-enhanced-highlight'
-Bundle 'Xuyuanp/nerdtree-git-plugin'
 Bundle 'pboettch/vim-cmake-syntax'
 Bundle 'DfrankUtil'
 Bundle 'vimprj'
