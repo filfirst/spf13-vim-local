@@ -169,6 +169,11 @@ if isdirectory(expand("~/.vim/bundle/YouCompleteMe/"))
 endif
 
 
+augroup onleaveall
+    autocmd VimLeavePre * :pclose
+augroup END
+
+
 " Deps - do not remove
 "
 "UnBundle 'gmarik/vundle'
