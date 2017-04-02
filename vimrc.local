@@ -44,7 +44,7 @@ autocmd FileType haskell,puppet,ruby,yml setlocal expandtab shiftwidth=4 softtab
 
 if isdirectory(expand("~/.vim/bundle/nerdtree"))
     unmap <C-e>
-    map <C-q> <plug>NERDTreeTabsToggle<CR>
+    nnoremap <Leader>ee :NERDTreeTabsToggle<CR>
 endif
 
 
