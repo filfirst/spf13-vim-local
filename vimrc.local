@@ -171,6 +171,7 @@ endif
 
 augroup onleaveall
     autocmd VimLeavePre * :pclose
+    autocmd VimLeavePre * :cclose
 augroup END
 
 
