@@ -39,6 +39,10 @@ inoremap jk <ESC>
 nnoremap <Leader>88 :set cc=80<CR>
 nnoremap <Leader>89 :set cc=<CR>
 
+nnoremap <Leader>ae :let w:airline_skip_empty_sections = 1<CR>
+nnoremap <Leader>ea :let w:airline_skip_empty_sections = 0<CR>
+nnoremap <Leader>aa :AirlineRefresh<CR>
+
 autocmd FileType haskell,puppet,ruby,yml setlocal expandtab shiftwidth=4 softtabstop=4
 
 
