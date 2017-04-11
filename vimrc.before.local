@@ -16,6 +16,7 @@ let g:spf13_no_conceal = 1
 let g:spf13_keep_trailing_whitespace = 1
 let g:spf13_leader='\'
 let g:airline_skip_empty_sections = 1
+"let w:airline_skip_empty_sections = 1
 "let g:indent_guides_enable_on_vim_startup=0
 let g:AutoPairsMultilineClose = 0
 
@@ -86,6 +87,9 @@ if isdirectory(expand("~/.vim/bundle/YouCompleteMe"))
     "let g:ycm_show_diagnostics_ui = 0
     let g:ycm_max_diagnostics_to_display = 1000
     let g:ycm_disable_for_files_larger_than_kb = 10000
+    let g:airline#extensions#ycm#enabled = 1
+    "let g:ycm_autoclose_preview_window_after_insertion = 1
+    "let g:ycm_autoclose_preview_window_after_completion = 1
     if isdirectory(expand("~/opt/rust/rustc/"))
         let g:ycm_rust_src_path = expand("~/opt/rust/rustc/src")
     endif
