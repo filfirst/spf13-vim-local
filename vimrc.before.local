@@ -16,7 +16,6 @@ let g:spf13_no_conceal = 1
 let g:spf13_keep_trailing_whitespace = 1
 let g:spf13_leader='\'
 let g:airline_skip_empty_sections = 1
-"let w:airline_skip_empty_sections = 1
 "let g:indent_guides_enable_on_vim_startup=0
 let g:AutoPairsMultilineClose = 0
 
