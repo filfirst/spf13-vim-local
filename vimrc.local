@@ -10,6 +10,9 @@ set foldmethod=syntax
 "set foldmethod=indent
 set nofoldenable
 
+set nosplitright
+set nosplitbelow
+
 if has("macunix")
     set guifont=SF\ Mono:h12
 elseif has("unix")
