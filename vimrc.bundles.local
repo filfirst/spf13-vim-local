@@ -14,6 +14,10 @@ if executable("swift")
     Bundle 'keith/swift.vim'
 endif
 
+if executable("julia")
+    Bundle 'JuliaEditorSupport/julia-vim'
+endif
+
 if filereadable(expand("~/.vimrc.bundles.self"))
     source ~/.vimrc.bundles.self
 endif
