@@ -4,6 +4,10 @@ import sys
 import json
 import ycm_core
 
+# TODO:
+# * Add extra flags support
+# * Support override BASE_FLAGS, SYSTEM_SPECIFIED_FLAGS
+
 
 YCM_PROJECT_FILENAME = 'ycm_project.json'
 
@@ -21,24 +25,18 @@ BASE_FLAGS = [
     '-DNDEBUG',
     '-std=c++14',
     '-xc++',
-
-    '-I/usr/lib',
-    '-I/usr/include',
-    '-I/usr/local/lib',
-    '-I/usr/local/inlude',
 ]
 
 SYSTEM_NAME = os.uname()[0]
 
 if SYSTEM_NAME == 'Darwin':
     SYSTEM_SPECIFIED_FLAGS = [
-        '-I/usr/local/opt/openssl/include',
-        '-I/usr/local/opt/qt5/include',
-        '-I/usr/local/opt/icu4c/include',
-        '-I/usr/local/include/gtk-3.0',
-        '-I/usr/local/include/gtkmm-3.0',
+        '-isystem', '/usr/local/opt/openssl/include',
+        '-isystem', '/usr/local/opt/qt5/include',
+        '-isystem', '/usr/local/opt/icu4c/include',
+        '-isystem', '/usr/local/include/gtk-3.0',
+        '-isystem', '/usr/local/include/gtkmm-3.0',
         '-isystem', '/usr/local/Frameworks/Python.framework/Versions/3.6/Headers',
-        '-isysroot', '/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk',
     ]
 elif SYSTEM_NAME == 'Linux':
     SYSTEM_SPECIFIED_FLAGS = [
