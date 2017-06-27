@@ -37,8 +37,6 @@ endif
 nnoremap <Leader>ta :set completeopt+=preview<CR>
 nnoremap <Leader>at :set completeopt-=preview<CR>
 
-inoremap jk <ESC>
-
 nnoremap <Leader>88 :set cc=80<CR>
 nnoremap <Leader>89 :set cc=<CR>
 
