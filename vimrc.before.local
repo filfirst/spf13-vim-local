@@ -120,6 +120,12 @@ if isdirectory(expand("~/.vim/bundle/haskellmode-vim"))
     "au BufEnter *.hs compiler ghc
 endif
 
+if isdirectory(expand("~/.vim/bundle/ghcmod-vim"))
+    if executable("ghc-mod")
+        autocmd BufWritePost *.hs GhcModCheckAndLintAsync
+    endif
+endif
+
 if isdirectory(expand("~/.vim/bundle/tagbar"))
     let g:tagbar_autofocus = 1
     let g:tagbar_iconchars = ['▸', '▾']
