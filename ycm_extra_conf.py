@@ -32,7 +32,7 @@ SYSTEM_NAME = os.uname()[0]
 if SYSTEM_NAME == 'Darwin':
     SYSTEM_SPECIFIED_FLAGS = [
         '-isystem', '/usr/local/opt/openssl/include',
-        '-isystem', '/usr/local/opt/qt5/include',
+        '-isystem', '/usr/local/opt/qt/include',
         '-isystem', '/usr/local/opt/icu4c/include',
         '-isystem', '/usr/local/include/gtk-3.0',
         '-isystem', '/usr/local/include/gtkmm-3.0',
