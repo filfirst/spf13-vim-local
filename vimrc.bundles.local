@@ -18,6 +18,10 @@ if executable("julia")
     Bundle 'JuliaEditorSupport/julia-vim'
 endif
 
+if executable("tsc")
+    Bundle 'leafgarland/typescript-vim'
+endif
+
 if filereadable(expand("~/.vimrc.bundles.self"))
     source ~/.vimrc.bundles.self
 endif

@@ -349,6 +349,10 @@ if executable("julia")
     "UnBundle 'JuliaEditorSupport/julia-vim'
 endif
 
+if executable("tsc")
+    "UnBundle 'leafgarland/typescript-vim'
+endif
+
 if filereadable(expand("~/.vimrc.self"))
     source ~/.vimrc.self
 endif
