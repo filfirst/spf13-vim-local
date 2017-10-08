@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+target=${1:-"$(pwd)"}
+
+cp $HOME/.spf13-vim.local/ycm_extra_conf.py $target/.ycm_extra_conf.py
