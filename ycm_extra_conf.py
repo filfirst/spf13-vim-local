@@ -5,7 +5,7 @@ import ycm_core
 # -----------------------------------------------------------------------------
 # Utilities
 
-def directory_of_this_script():
+def dir_of_this_script():
     return os.path.dirname(os.path.abspath(__file__))
 
 
@@ -50,7 +50,7 @@ def match_path_basename(patterns, path, case_sensitive):
     return match_pattern(patterns, name, case_sensitive)
 
 
-def find_matched_directories(patterns, top, case_sensitive):
+def find_matched_dirs(patterns, top, case_sensitive):
     matched = set()
 
     for root, dirs, files in os.walk(top):
@@ -60,7 +60,7 @@ def find_matched_directories(patterns, top, case_sensitive):
     return matched
 
 
-def find_directories_contain_files(patterns, top, case_sensitive):
+def find_dirs_contain_files(patterns, top, case_sensitive):
     matched = set()
 
     for root, dirs, files in os.walk(top):
@@ -73,7 +73,7 @@ def find_directories_contain_files(patterns, top, case_sensitive):
     return matched
 
 
-def default_union_directory(dirs, others):
+def union_dir(dirs, others):
     for other in others:
         should_add = True
 
@@ -86,33 +86,32 @@ def default_union_directory(dirs, others):
             dirs.add(other)
 
 
-def default_traverse_header_dirs(top):
+def find_header_dirs(top, case_sensitive):
     dirs = set()
 
-    dirs = find_matched_directories(HEADER_DIRS, top, False)
-    container_dirs = find_directories_contain_files(HEADER_EXTENSIONS, top,
-                                                    False)
-    default_union_directory(dirs, container_dirs)
+    dirs = find_matched_dirs(HEADER_DIRS, top, case_sensitive)
+    others = find_dirs_contain_files(HEADER_EXTENSIONS, top, case_sensitive)
+    union_dir(dirs, others)
 
     return dirs
 
 
-def default_add_user_header_flags(top, header_dirs):
-    dirs = default_traverse_header_dirs(
-        os.path.join(directory_of_this_script(), top))
+def make_user_header_flags(top, header_dirs):
+    if os.path.isabs(top):
+        dirs = find_header_dirs(top, False)
+    else:
+        dirs = find_header_dirs(os.path.join(THIS_CONF_DIR, top), False)
+
     dirs.difference_update(header_dirs)
     header_flags = apply_flag('-I', dirs, True)
+
+    return header_flags, dirs
+
+
+def add_user_header_flags(top, flags, header_dirs):
+    header_flags, dirs = make_user_header_flags(top, header_dirs)
+    flags.extend(header_flags)
     header_dirs.update(dirs)
-
-    return header_flags
-
-
-def default_user_header_flags(header_dirs):
-    if basename_of_this_script() != DEFAULT_YCM_EXTRA_CONF:
-        return default_add_user_header_flags(directory_of_this_script(),
-                                             header_dirs)
-
-    return []
 
 
 def get_compilation_info_for_file(filename):
@@ -136,7 +135,8 @@ SYSTEM_NAME = os.uname()[0]
 SOURCE_EXTENSIONS = ['.cpp', '.cxx', '.cc', '.c', '.m', '.mm']
 HEADER_EXTENSIONS = ['.h', '.hxx', '.hpp', '.hh']
 HEADER_DIRS = ['include', 'inc', 'headers']
-DEFAULT_YCM_EXTRA_CONF = 'ycm_extra_conf.py'
+THIS_CONF_BASENAME = basename_of_this_script()
+THIS_CONF_DIR = dir_of_this_script()
 
 
 # -----------------------------------------------------------------------------
@@ -157,10 +157,10 @@ else:
 # -----------------------------------------------------------------------------
 # Manual settings
 
-all_header_dirs = set()
+manual_header_dirs = set()
 
 # Base flags
-flags = [
+manual_flags = [
     '-Wall',
     '-Wextra',
     '-Werror',
@@ -196,12 +196,11 @@ else:
     system_header_dirs = set()
     system_header_flags = []
 
-all_header_dirs.update(system_header_dirs)
-
-flags.extend(system_header_flags)
+manual_header_dirs.update(system_header_dirs)
+manual_flags.extend(system_header_flags)
 
 # User header dirs
-flags.extend(default_user_header_flags(all_header_dirs))
+add_user_header_flags(THIS_CONF_DIR, manual_flags, manual_header_dirs)
 
 
 # -----------------------------------------------------------------------------
@@ -209,17 +208,17 @@ flags.extend(default_user_header_flags(all_header_dirs))
 def FlagsForFile(filename, **kwargs):
     if not database:
         return {
-            'flags': flags,
-            'include_paths_relative_to_dir': directory_of_this_script()
+            'flags': manual_flags,
+            'include_paths_relative_to_dir': THIS_CONF_DIR
         }
 
     compilation_info = get_compilation_info_for_file(filename)
     if not compilation_info:
         return None
 
-    final_flags = list(compilation_info.compiler_flags_)
+    compilation_info_flags = list(compilation_info.compiler_flags_)
 
     return {
-        'flags': final_flags,
+        'flags': compilation_info_flags,
         'include_paths_relative_to_dir': compilation_info.compiler_working_dir_
     }
