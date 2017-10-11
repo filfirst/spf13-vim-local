@@ -36,22 +36,88 @@ def match_pattern(patterns, string, case_sensitive):
         return False
 
     if case_sensitive:
-        actual_patterns = patterns
-    else:
-        actual_patterns = []
-        for pattern in patterns:
-            actual_patterns.append(pattern.lower())
+        return string in patterns
+
+    actual_patterns = []
+    for pattern in patterns:
+        actual_patterns.append(pattern.lower())
 
     return string.lower() in actual_patterns
 
 
 def match_path_basename(patterns, path, case_sensitive):
+    if not path:
+        return False
+
+    if not os.path.isabs(path):
+        path = os.path.join(THIS_CONF_DIR, path)
+    path = os.path.realpath(path)
+
     name = os.path.basename(path)
     return match_pattern(patterns, name, case_sensitive)
 
 
+def is_subdir(subdir, parent_dir):
+    if not subdir or not parent_dir:
+        return False
+
+    if not os.path.isabs(subdir):
+        subdir = os.path.join(THIS_CONF_DIR, subdir)
+    subdir = os.path.realpath(subdir)
+
+    if not os.path.isabs(parent_dir):
+        parent_dir = os.path.join(THIS_CONF_DIR, parent_dir)
+    parent_dir = os.path.realpath(parent_dir)
+
+    relative = os.path.relpath(subdir, parent_dir)
+
+    if relative.startswith(os.pardir):
+        return False
+    else:
+        return True
+
+
+def exclude_dirs(dirs, excluded):
+    real_excluded = set()
+    for ex in excluded:
+        if not ex:
+            continue
+
+        if not os.path.isabs(ex):
+            ex = os.path.join(THIS_CONF_DIR, ex)
+        real_excluded.add(os.path.realpath(ex))
+
+    included = set()
+    for inc in dirs:
+        should_included = True
+
+        if not inc:
+            continue
+
+        if not os.path.isabs(inc):
+            inc = os.path.join(THIS_CONF_DIR, inc)
+        inc = os.path.realpath(inc)
+
+        for real_ex in real_excluded:
+            if is_subdir(inc, real_ex):
+                should_included = False
+                break
+
+        if should_included:
+            included.add(inc)
+
+    return included
+
+
 def find_matched_dirs(patterns, top, case_sensitive):
     matched = set()
+
+    if not top:
+        return matched
+
+    if not os.path.isabs(top):
+        top = os.path.join(THIS_CONF_DIR, top)
+    top = os.path.realpath(top)
 
     for root, dirs, files in os.walk(top):
         if match_path_basename(patterns, root, case_sensitive):
@@ -63,6 +129,13 @@ def find_matched_dirs(patterns, top, case_sensitive):
 def find_dirs_contain_files(patterns, top, case_sensitive):
     matched = set()
 
+    if not top:
+        return matched
+
+    if not os.path.isabs(top):
+        top = os.path.join(THIS_CONF_DIR, top)
+    top = os.path.realpath(top)
+
     for root, dirs, files in os.walk(top):
         for f in files:
             ext = os.path.splitext(f)[1]
@@ -73,43 +146,36 @@ def find_dirs_contain_files(patterns, top, case_sensitive):
     return matched
 
 
-def union_dir(dirs, others):
-    for other in others:
-        should_add = True
-
-        for current in dirs:
-            if other.startswith(current):
-                should_add = False
-                break
-
-        if should_add:
-            dirs.add(other)
-
-
-def find_header_dirs(top, case_sensitive):
+def find_header_dirs(top, excluded=None, case_sensitive=False):
     dirs = set()
+
+    if not top:
+        return dirs
 
     dirs = find_matched_dirs(HEADER_DIRS, top, case_sensitive)
     others = find_dirs_contain_files(HEADER_EXTENSIONS, top, case_sensitive)
-    union_dir(dirs, others)
+    others = exclude_dirs(others, dirs)
+    dirs.update(others)
+
+    if excluded:
+        dirs = exclude_dirs(dirs, excluded)
 
     return dirs
 
 
-def make_user_header_flags(top, header_dirs):
-    if os.path.isabs(top):
-        dirs = find_header_dirs(top, False)
-    else:
-        dirs = find_header_dirs(os.path.join(THIS_CONF_DIR, top), False)
-
+def make_user_header_flags(top, header_dirs, excluded=None,
+                           case_sensitive=False):
+    dirs = find_header_dirs(top, excluded, case_sensitive)
     dirs.difference_update(header_dirs)
     header_flags = apply_flag('-I', dirs, True)
 
     return header_flags, dirs
 
 
-def add_user_header_flags(top, flags, header_dirs):
-    header_flags, dirs = make_user_header_flags(top, header_dirs)
+def add_user_header_flags(top, flags, header_dirs, excluded=None,
+                          case_sensitive=False):
+    header_flags, dirs = make_user_header_flags(top, header_dirs, excluded,
+                                                case_sensitive)
     flags.extend(header_flags)
     header_dirs.update(dirs)
 
