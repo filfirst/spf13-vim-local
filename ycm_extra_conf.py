@@ -229,7 +229,8 @@ manual_header_dirs = set()
 manual_flags = [
     '-Wall',
     '-Wextra',
-    '-Werror',
+    '-Wconversion',
+    '-Wno-sign-compare',
     '-Wno-long-long',
     '-Wno-variadic-macros',
     '-fexceptions',
