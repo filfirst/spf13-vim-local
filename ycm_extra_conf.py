@@ -230,6 +230,8 @@ manual_flags = [
     '-Wall',
     '-Wextra',
     '-Wconversion',
+    '-Wno-sign-conversion',
+    '-Wno-float-conversion',
     '-Wno-sign-compare',
     '-Wno-long-long',
     '-Wno-variadic-macros',
