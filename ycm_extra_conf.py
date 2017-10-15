@@ -1,5 +1,9 @@
 import os
-import ycm_core
+import sys
+import subprocess
+
+if __name__ != '__main__':
+    import ycm_core
 
 
 # -----------------------------------------------------------------------------
@@ -11,6 +15,39 @@ def dir_of_this_script():
 
 def basename_of_this_script():
     return os.path.basename(__file__)
+
+
+def get_default_system_header_dirs():
+    proc = subprocess.Popen(['cpp', '-xc++', '-Wp,-v', '/dev/null'],
+                            stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+    outs, errs = proc.communicate()
+    err_lines = errs.decode().split('\n')
+
+    header_dirs = []
+    framework_dirs = []
+    header_dir_start_mark = '#include <...> search starts here:'
+    header_dir_stop_mark = 'End of search list.'
+    framework_mark = ' (framework directory)'
+
+    start = False
+
+    for line in err_lines:
+        if line == header_dir_start_mark:
+            start = True
+            continue
+
+        if line == header_dir_stop_mark:
+            break
+
+        if start:
+            h = line.strip()
+            if line.endswith(framework_mark):
+                framework_dirs.append(h[:len(h) - len(framework_mark)])
+            else:
+                header_dirs.append(h)
+
+    return header_dirs, framework_dirs
 
 
 def is_header_file(filename):
@@ -180,6 +217,30 @@ def add_user_header_flags(top, flags, header_dirs, excluded=None,
     header_dirs.update(dirs)
 
 
+def get_header_dir_from_flags(flags):
+    dirs = []
+    flag_count = len(flags)
+    idx = 0
+
+    while idx < flag_count:
+        f = flags[idx]
+
+        if f == '-isystem' and idx < flag_count - 1:
+            idx += 1
+            dirs.append(flags[idx])
+        elif f.startswith('-isystem'):
+            dirs.append(f[len('-isystem'):])
+        elif f == '-I' and idx < flag_count - 1:
+            idx += 1
+            dirs.append(flags[idx])
+        elif f.startswith('-I'):
+            dirs.append(f[len('-I'):])
+
+        idx += 1
+
+    return dirs
+
+
 def get_compilation_info_for_file(filename):
     if is_header_file(filename):
         basename = os.path.splitext(filename)[0]
@@ -291,3 +352,39 @@ def FlagsForFile(filename, **kwargs):
         'flags': compilation_info_flags,
         'include_paths_relative_to_dir': compilation_info.compiler_working_dir_
     }
+
+
+# -----------------------------------------------------------------------------
+# Main
+def main(argv):
+    user_header_dirs = get_header_dir_from_flags(manual_flags)
+    sys_header_dirs, sys_framework_dirs = get_default_system_header_dirs()
+
+    final_user_header_dirs = []
+
+    for h in user_header_dirs:
+        if h not in sys_header_dirs:
+            final_user_header_dirs.append(h)
+
+    header_strs = []
+    for h in final_user_header_dirs:
+        header_strs.append('"{}"'.format(h))
+
+    for h in sys_header_dirs:
+        header_strs.append('"{}"'.format(h))
+
+    framework_strs = []
+    for f in sys_framework_dirs:
+        framework_strs.append('"{}"'.format(f))
+
+    print('Header Directories:')
+    print('-------------------')
+    print(',\n'.join(header_strs))
+
+    print('\nFramework Directories:')
+    print('----------------------')
+    print(',\n'.join(framework_strs))
+
+
+if __name__ == '__main__':
+    sys.exit(main(sys.argv))
