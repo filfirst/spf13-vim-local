@@ -217,6 +217,29 @@ def add_user_header_flags(top, flags, header_dirs, excluded=None,
     header_dirs.update(dirs)
 
 
+def add_flag(flag, target, dedupe=True):
+    if not flag:
+        return
+
+    in_flag = []
+
+    if isinstance(flag, str):
+        in_flag.append(flag)
+    elif isinstance(flag, list):
+        in_flag = flag
+    else:
+        return
+
+    in_length = len(in_flag)
+    target_length = len(target)
+    if dedupe:
+        for idx in range(target_length - in_length + 1):
+            if target[idx:idx+in_length] == in_flag:
+                return
+
+    target.extend(in_flag)
+
+
 def get_header_dir_from_flags(flags):
     dirs = []
     flag_count = len(flags)
