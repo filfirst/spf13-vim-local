@@ -27,7 +27,7 @@ set guioptions-=r
 set guioptions-=R
 
 
-" inoremap jk <ESC>
+inoremap jk <ESC>
 
 if isdirectory(expand("~/.vim/bundle/Monota"))
     nnoremap <Leader>scd :MonotaSetDarkColorScheme<CR>
