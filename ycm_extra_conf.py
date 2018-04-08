@@ -331,8 +331,6 @@ if SYSTEM_NAME == 'Darwin':
         '/usr/local/opt/openssl/include',
         '/usr/local/opt/qt/include',
         '/usr/local/opt/icu4c/include',
-        '/usr/local/include/gtk-3.0',
-        '/usr/local/include/gtkmm-3.0',
         '/usr/local/Frameworks/Python.framework/Versions/3.6/Headers'
     }
 
