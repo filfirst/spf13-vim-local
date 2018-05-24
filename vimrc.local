@@ -26,6 +26,8 @@ set guioptions-=L
 set guioptions-=r
 set guioptions-=R
 
+set shell=zsh
+
 
 inoremap jk <ESC>
 
