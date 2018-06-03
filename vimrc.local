@@ -57,34 +57,35 @@ if isdirectory(expand("~/.vim/bundle/nerdtree"))
 endif
 
 
-if isdirectory(expand("~/.vim/bundle/syntastic")) && executable("flake8")
-    function! ChangePythonFlake8Exe(flake8Exec)
-        let g:syntastic_python_flake8_exe = a:flake8Exec . " -m flake8"
+if isdirectory(expand("~/.vim/bundle/syntastic")) && g:ftk_python_checker != ""
+    function! FTKChangePythonCheckerExe(pythonExec)
+        let l:syntastic_python_checker_exe_name = "syntastic_python_" . g:ftk_python_checker . "_exe"
+        let g:{l:syntastic_python_checker_exe_name} = a:pythonExec . " -m " . g:ftk_python_checker
     endfunction
 
-    command! -nargs=1 ChangePythonFlake8ExePy call ChangePythonFlake8Exe(<f-args>)
+    command! -nargs=1 FTKSetPythonCheckerExe call FTKChangePythonCheckerExe(<f-args>)
 
     if executable("/usr/local/bin/python2")
-        command! ChangePythonFlake8ExePy2 call ChangePythonFlake8Exe("/usr/local/bin/python2")
+        command! FTKSetPythonCheckerExePy2 call FTKChangePythonCheckerExe("/usr/local/bin/python2")
     elseif executable("/usr/bin/python2")
-        command! ChangePythonFlake8ExePy2 call ChangePythonFlake8Exe("/usr/bin/python2")
+        command! FTKSetPythonCheckerExePy2 call FTKChangePythonCheckerExe("/usr/bin/python2")
     else
-        command! ChangePythonFlake8ExePy2 call ChangePythonFlake8Exe("python2")
+        command! FTKSetPythonCheckerExePy2 call FTKChangePythonCheckerExe("python2")
     endif
 
     if executable("/usr/local/bin/python3")
-        command! ChangePythonFlake8ExePy3 call ChangePythonFlake8Exe("/usr/local/bin/python3")
+        command! FTKSetPythonCheckerExePy3 call FTKChangePythonCheckerExe("/usr/local/bin/python3")
     elseif executable("/usr/bin/python3")
-        command! ChangePythonFlake8ExePy3 call ChangePythonFlake8Exe("/usr/bin/python3")
+        command! FTKSetPythonCheckerExePy3 call FTKChangePythonCheckerExe("/usr/bin/python3")
     else
-        command! ChangePythonFlake8ExePy3 call ChangePythonFlake8Exe("python3")
+        command! FTKSetPythonCheckerExePy3 call FTKChangePythonCheckerExe("python3")
     endif
 
-    command! ChangePythonFlake8ExePython call ChangePythonFlake8Exe("python")
+    command! FTKSetPythonCheckerExePy call FTKChangePythonCheckerExe("python")
 
-    nnoremap <Leader>sp2 :ChangePythonFlake8ExePy2<CR>
-    nnoremap <Leader>sp3 :ChangePythonFlake8ExePy3<CR>
-    nnoremap <Leader>spp :ChangePythonFlake8ExePython<CR>
+    nnoremap <Leader>sp2 :FTKSetPythonCheckerExePy2<CR>
+    nnoremap <Leader>sp3 :FTKSetPythonCheckerExePy3<CR>
+    nnoremap <Leader>spp :FTKSetPythonCheckerExePy<CR>
 endif
 
 

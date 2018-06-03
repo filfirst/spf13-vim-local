@@ -42,12 +42,18 @@ if isdirectory(expand("~/.vim/bundle/syntastic"))
         let g:syntastic_c_compiler = "clang"
     endif
 
-    let g:syntastic_c_compiler_options="-std=c99"
+    let g:syntastic_c_compiler_options="-std=c11"
     let g:syntastic_c_include_dirs = ["/usr/local/include"]
     let g:syntastic_c_auto_refresh_includes = 1
 
-    if executable("flake8")
+    if executable("pylint")
+        let g:syntastic_python_checkers = ["pylint"]
+        let g:ftk_python_checker = "pylint"
+    elseif executable("flake8")
         let g:syntastic_python_checkers = ["flake8"]
+        let g:ftk_python_checker = "flake8"
+    else
+        let g:ftk_python_checker = ""
     endif
 
     "if isdirectory(expand("~/.vim/bundle/swift.vim")) && executable("swift")
