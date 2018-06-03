@@ -47,13 +47,15 @@ if isdirectory(expand("~/.vim/bundle/syntastic"))
     let g:syntastic_c_auto_refresh_includes = 1
 
     if executable("pylint")
-        let g:syntastic_python_checkers = ["pylint"]
         let g:ftk_python_checker = "pylint"
     elseif executable("flake8")
-        let g:syntastic_python_checkers = ["flake8"]
         let g:ftk_python_checker = "flake8"
     else
         let g:ftk_python_checker = ""
+    endif
+
+    if g:ftk_python_checker != ""
+        let g:syntastic_python_checkers = [g:ftk_python_checker]
     endif
 
     "if isdirectory(expand("~/.vim/bundle/swift.vim")) && executable("swift")
