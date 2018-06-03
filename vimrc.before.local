@@ -54,10 +54,6 @@ if isdirectory(expand("~/.vim/bundle/syntastic"))
         let g:ftk_python_checker = ""
     endif
 
-    if g:ftk_python_checker != ""
-        let g:syntastic_python_checkers = [g:ftk_python_checker]
-    endif
-
     "if isdirectory(expand("~/.vim/bundle/swift.vim")) && executable("swift")
     "    let g:syntastic_swift_checkers = ['swiftpm']
     "endif

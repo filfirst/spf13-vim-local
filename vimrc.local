@@ -58,6 +58,8 @@ endif
 
 
 if isdirectory(expand("~/.vim/bundle/syntastic")) && g:ftk_python_checker != ""
+    let g:syntastic_python_checkers = [g:ftk_python_checker]
+
     function! FTKChangePythonCheckerExe(pythonExec)
         let l:syntastic_python_checker_exe_name = "syntastic_python_" . g:ftk_python_checker . "_exe"
         let g:{l:syntastic_python_checker_exe_name} = a:pythonExec . " -m " . g:ftk_python_checker
