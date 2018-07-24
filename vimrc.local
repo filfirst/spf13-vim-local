@@ -136,43 +136,43 @@ if isdirectory(expand("~/.vim/bundle/YouCompleteMe/"))
     nnoremap <Leader>yq :YcmCompleter GetDocQuick<CR>
     nnoremap <Leader>yr :YcmCompleter GoToReferences<CR>
 
-    nnoremap <Leader>ypp :YcmCompleter RestartServer python<CR> :ChangePythonFlake8ExePython<CR>
+    nnoremap <Leader>ypp :YcmCompleter RestartServer python<CR> :FTKSetPythonCheckerExePy<CR>
 
     if executable("/usr/local/bin/python2")
-        if isdirectory(expand("~/.vim/bundle/syntastic")) && executable("flake8")
-            nnoremap <Leader>yp2 :YcmCompleter RestartServer /usr/local/bin/python2<CR> :ChangePythonFlake8ExePy2<CR>
+        if isdirectory(expand("~/.vim/bundle/syntastic")) && executable("pylint")
+            nnoremap <Leader>yp2 :YcmCompleter RestartServer /usr/local/bin/python2<CR> :FTKSetPythonCheckerExePy2<CR>
         else
             nnoremap <Leader>yp2 :YcmCompleter RestartServer /usr/local/bin/python2<CR>
         endif
     elseif executable("/usr/bin/python2")
-        if isdirectory(expand("~/.vim/bundle/syntastic")) && executable("flake8")
-            nnoremap <Leader>yp2 :YcmCompleter RestartServer /usr/bin/python2<CR> :ChangePythonFlake8ExePy2<CR>
+        if isdirectory(expand("~/.vim/bundle/syntastic")) && executable("pylint")
+            nnoremap <Leader>yp2 :YcmCompleter RestartServer /usr/bin/python2<CR> :FTKSetPythonCheckerExePy2<CR>
         else
             nnoremap <Leader>yp2 :YcmCompleter RestartServer /usr/bin/python2<CR>
         endif
     else
-        if isdirectory(expand("~/.vim/bundle/syntastic")) && executable("flake8")
-            nnoremap <Leader>yp2 :YcmCompleter RestartServer python2<CR> :ChangePythonFlake8ExePy2<CR>
+        if isdirectory(expand("~/.vim/bundle/syntastic")) && executable("pylint")
+            nnoremap <Leader>yp2 :YcmCompleter RestartServer python2<CR> :FTKSetPythonCheckerExePy2<CR>
         else
             nnoremap <Leader>yp2 :YcmCompleter RestartServer python2<CR>
         endif
     endif
 
     if executable("/usr/local/bin/python3")
-        if isdirectory(expand("~/.vim/bundle/syntastic")) && executable("flake8")
-            nnoremap <Leader>yp3 :YcmCompleter RestartServer /usr/local/bin/python3<CR> :ChangePythonFlake8ExePy3<CR>
+        if isdirectory(expand("~/.vim/bundle/syntastic")) && executable("pylint")
+            nnoremap <Leader>yp3 :YcmCompleter RestartServer /usr/local/bin/python3<CR> :FTKSetPythonCheckerExePy3<CR>
         else
             nnoremap <Leader>yp3 :YcmCompleter RestartServer /usr/local/bin/python3<CR>
         endif
     elseif executable("/usr/bin/python3")
-        if isdirectory(expand("~/.vim/bundle/syntastic")) && executable("flake8")
-            nnoremap <Leader>yp3 :YcmCompleter RestartServer /usr/bin/python3<CR> :ChangePythonFlake8ExePy3<CR>
+        if isdirectory(expand("~/.vim/bundle/syntastic")) && executable("pylint")
+            nnoremap <Leader>yp3 :YcmCompleter RestartServer /usr/bin/python3<CR> :FTKSetPythonCheckerExePy3<CR>
         else
             nnoremap <Leader>yp3 :YcmCompleter RestartServer /usr/bin/python3<CR>
         endif
     else
-        if isdirectory(expand("~/.vim/bundle/syntastic")) && executable("flake8")
-            nnoremap <Leader>yp3 :YcmCompleter RestartServer python3<CR> :ChangePythonFlake8ExePy3<CR>
+        if isdirectory(expand("~/.vim/bundle/syntastic")) && executable("pylint")
+            nnoremap <Leader>yp3 :YcmCompleter RestartServer python3<CR> :FTKSetPythonCheckerExePy3<CR>
         else
             nnoremap <Leader>yp3 :YcmCompleter RestartServer python3<CR>
         endif
