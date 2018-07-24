@@ -136,45 +136,45 @@ if isdirectory(expand("~/.vim/bundle/YouCompleteMe/"))
     nnoremap <Leader>yq :YcmCompleter GetDocQuick<CR>
     nnoremap <Leader>yr :YcmCompleter GoToReferences<CR>
 
-    nnoremap <Leader>ypp :YcmCompleter RestartServer python<CR> :FTKSetPythonCheckerExePy<CR>
+    nnoremap <Leader>ypp :let g:ycm_python_binary_path="python"<CR> :YcmRestartServer<CR> :FTKSetPythonCheckerExePy<CR>
 
     if executable("/usr/local/bin/python2")
-        if isdirectory(expand("~/.vim/bundle/syntastic")) && executable("pylint")
-            nnoremap <Leader>yp2 :YcmCompleter RestartServer /usr/local/bin/python2<CR> :FTKSetPythonCheckerExePy2<CR>
+        if isdirectory(expand("~/.vim/bundle/syntastic"))
+            nnoremap <Leader>yp2 :let g:ycm_python_binary_path="/usr/local/bin/python2"<CR> :YcmRestartServer<CR> :FTKSetPythonCheckerExePy2<CR>
         else
-            nnoremap <Leader>yp2 :YcmCompleter RestartServer /usr/local/bin/python2<CR>
+            nnoremap <Leader>yp2 :let g:ycm_python_binary_path="/usr/local/bin/python2"<CR> :YcmRestartServer<CR>
         endif
     elseif executable("/usr/bin/python2")
-        if isdirectory(expand("~/.vim/bundle/syntastic")) && executable("pylint")
-            nnoremap <Leader>yp2 :YcmCompleter RestartServer /usr/bin/python2<CR> :FTKSetPythonCheckerExePy2<CR>
+        if isdirectory(expand("~/.vim/bundle/syntastic"))
+            nnoremap <Leader>yp2 :let g:ycm_python_binary_path="/usr/bin/python2"<CR> :YcmRestartServer<CR> :FTKSetPythonCheckerExePy2<CR>
         else
-            nnoremap <Leader>yp2 :YcmCompleter RestartServer /usr/bin/python2<CR>
+            nnoremap <Leader>yp2 :let g:ycm_python_binary_path="/usr/bin/python2"<CR> :YcmRestartServer<CR>
         endif
     else
-        if isdirectory(expand("~/.vim/bundle/syntastic")) && executable("pylint")
-            nnoremap <Leader>yp2 :YcmCompleter RestartServer python2<CR> :FTKSetPythonCheckerExePy2<CR>
+        if isdirectory(expand("~/.vim/bundle/syntastic"))
+            nnoremap <Leader>yp2 :let g:ycm_python_binary_path="python2"<CR> :YcmRestartServer<CR> :FTKSetPythonCheckerExePy2<CR>
         else
-            nnoremap <Leader>yp2 :YcmCompleter RestartServer python2<CR>
+            nnoremap <Leader>yp2 :let g:ycm_python_binary_path="python2"<CR> :YcmRestartServer<CR>
         endif
     endif
 
     if executable("/usr/local/bin/python3")
-        if isdirectory(expand("~/.vim/bundle/syntastic")) && executable("pylint")
-            nnoremap <Leader>yp3 :YcmCompleter RestartServer /usr/local/bin/python3<CR> :FTKSetPythonCheckerExePy3<CR>
+        if isdirectory(expand("~/.vim/bundle/syntastic"))
+            nnoremap <Leader>yp3 :let g:ycm_python_binary_path="/usr/local/bin/python3"<CR> :YcmRestartServer<CR> :FTKSetPythonCheckerExePy3<CR>
         else
-            nnoremap <Leader>yp3 :YcmCompleter RestartServer /usr/local/bin/python3<CR>
+            nnoremap <Leader>yp3 :let g:ycm_python_binary_path="/usr/local/bin/python3"<CR> :YcmRestartServer<CR>
         endif
     elseif executable("/usr/bin/python3")
-        if isdirectory(expand("~/.vim/bundle/syntastic")) && executable("pylint")
-            nnoremap <Leader>yp3 :YcmCompleter RestartServer /usr/bin/python3<CR> :FTKSetPythonCheckerExePy3<CR>
+        if isdirectory(expand("~/.vim/bundle/syntastic"))
+            nnoremap <Leader>yp3 :let g:ycm_python_binary_path="/usr/bin/python3"<CR> :YcmRestartServer<CR> :FTKSetPythonCheckerExePy3<CR>
         else
-            nnoremap <Leader>yp3 :YcmCompleter RestartServer /usr/bin/python3<CR>
+            nnoremap <Leader>yp3 :let g:ycm_python_binary_path="/usr/bin/python3"<CR> :YcmRestartServer<CR>
         endif
     else
-        if isdirectory(expand("~/.vim/bundle/syntastic")) && executable("pylint")
-            nnoremap <Leader>yp3 :YcmCompleter RestartServer python3<CR> :FTKSetPythonCheckerExePy3<CR>
+        if isdirectory(expand("~/.vim/bundle/syntastic"))
+            nnoremap <Leader>yp3 :let g:ycm_python_binary_path="python3"<CR> :YcmRestartServer<CR> :FTKSetPythonCheckerExePy3<CR>
         else
-            nnoremap <Leader>yp3 :YcmCompleter RestartServer python3<CR>
+            nnoremap <Leader>yp3 :let g:ycm_python_binary_path="python3"<CR> :YcmRestartServer<CR>
         endif
     endif
 endif
