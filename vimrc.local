@@ -50,6 +50,8 @@ nnoremap <Leader>ae :let w:airline_skip_empty_sections = 1<CR>
 nnoremap <Leader>ea :let w:airline_skip_empty_sections = 0<CR>
 nnoremap <Leader>aa :AirlineRefresh<CR>
 
+autocmd FileType go setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
+
 autocmd FileType haskell,puppet,ruby,yml setlocal expandtab shiftwidth=4 softtabstop=4
 
 
