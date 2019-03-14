@@ -355,7 +355,7 @@ if executable("swift")
 endif
 
 if executable("julia")
-    UnBundle 'JuliaEditorSupport/julia-vim'
+    "UnBundle 'JuliaEditorSupport/julia-vim'
 endif
 
 if executable("tsc")
