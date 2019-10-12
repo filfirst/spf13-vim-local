@@ -14,8 +14,8 @@ set nofoldenable
 "set nosplitbelow
 
 if has("macunix")
-    set guifont=Menlo:h12
-    "set guifont=SF\ Mono:h12
+    "set guifont=Menlo:h12
+    set guifont=SF\ Mono:h12
     set linespace=1
 elseif has("unix")
     set guifont=Ubuntu\ Mono\ 13
@@ -31,7 +31,7 @@ set guioptions-=R
 set shell=zsh
 
 
-inoremap jk <ESC>
+"inoremap jk <ESC>
 
 if isdirectory(expand("~/.vim/bundle/Monota"))
     nnoremap <Leader>scd :MonotaSetDarkColorScheme<CR>
