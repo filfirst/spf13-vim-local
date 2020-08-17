@@ -61,7 +61,7 @@ endif
 
 
 if isdirectory(expand("~/.vim/bundle/nerdtree-git-plugin"))
-    let g:NERDTreeIndicatorMapCustom = {
+    let g:NERDTreeGitStatusIndicatorMapCustom = {
         \ "Modified"  : "*",
         \ "Staged"    : "+",
         \ "Untracked" : "?",
