@@ -14,9 +14,9 @@ set nofoldenable
 "set nosplitbelow
 
 if has("macunix")
-    "set guifont=SF\ Mono:h12
-    "set linespace=1
-    set guifont=Menlo:h12
+    set guifont=SF\ Mono:h12
+    set linespace=1
+    "set guifont=Menlo:h12
 elseif has("unix")
     set guifont=Ubuntu\ Mono\ 13
 else
